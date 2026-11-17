@@ -1,0 +1,20 @@
+name: gemini_tts_voiceover
+title: Gemini TTS Voiceover
+description: Produce narration and dialogue voiceover with Gemini text to speech, verifying the model, budgeting the daily quota, and Whisper-checking every line on the delivered file.
+category: Media
+include_in_prompt: false
+skill_improvement:
+  managed: true
+  status: active
+  measurement:
+    proxy_metric_id: objective_success_rate
+    success_criterion: In Gemini TTS voiceover work after install, no job starts without a model-list check and a per-model quota budget, no connection is reported as working without a real generation call, every delivered line is Whisper-verified on the delivered final file, and no take that reads the prompt aloud or misses a line is delivered.
+    window_days: 30
+  needs_review: false
+  rationale: Agents burned Gemini TTS quota on the wrong model, claimed a connection that was not working, accepted takes that read the prompt aloud, and delivered audio with a missing line verified from source takes instead of the delivered file. The custom Gemini connector doc is not loop-managed, so this loop cannot correct it directly, and no existing skill covers model choice, quota budgeting, or delivered-file audio verification. The two managed skills are inside their measurement windows and were left untouched, learned skills number 2 so no consolidation is due, and the watchdog and hierarchy findings were left alone because the watchdog cron already succeeds and the hierarchy has no measured failure yet.
+  evidence_handles:
+  - assistant-msg-a035cb00-7647-a551-f600-6c53b0b00299
+  - assistant-msg-2f0a19a7-f8ff-40be-8713-1d23e792bdca
+  review_after: 2026-12-13T07:02:08.958488+00:00
+  reviewed_at: 2026-11-13T07:02:08.958488+00:00
+  run_id: sirun_73729e378b3f406c81b139c46687a761

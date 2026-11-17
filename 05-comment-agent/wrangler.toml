@@ -1,0 +1,22 @@
+name = "raj-ig-comment-agent"
+main = "worker.js"
+compatibility_date = "2026-01-01"
+
+# DRY_RUN = "true"  -> sirf log aayega, koi reply/DM NAHI jayega (pehle isi mode me test)
+# DRY_RUN = "false" -> live. Badalne ke baad commit/deploy karna.
+[vars]
+DRY_RUN = "true"
+APP_NAME = "Raj IG Comment Agent"
+CONTACT_EMAIL = ""
+
+# State: dedupe + cooldown + refreshed token
+[[kv_namespaces]]
+binding = "STATE"
+id = "6c760d539ee641fda7c131f887743251"
+
+# Roz ek baar token refresh (UTC 03:17)
+[triggers]
+crons = ["17 3 * * *"]
+
+[observability]
+enabled = true
