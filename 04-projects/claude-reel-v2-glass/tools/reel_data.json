@@ -1,0 +1,1478 @@
+{
+ "DATA": {
+  "lines": [
+   {
+    "start": 0.0,
+    "dur": 3.04,
+    "words": [
+     {
+      "w": "Ek",
+      "s": 0.0,
+      "e": 0.52
+     },
+     {
+      "w": "line",
+      "s": 0.52,
+      "e": 0.78
+     },
+     {
+      "w": "likhi",
+      "s": 0.78,
+      "e": 1.08
+     },
+     {
+      "w": "aur",
+      "s": 1.44,
+      "e": 1.74
+     },
+     {
+      "w": "poori",
+      "s": 1.74,
+      "e": 2.44
+     },
+     {
+      "w": "reel",
+      "s": 2.44,
+      "e": 2.72
+     },
+     {
+      "w": "ban",
+      "s": 2.72,
+      "e": 2.88
+     },
+     {
+      "w": "gayi",
+      "s": 2.88,
+      "e": 3.04
+     }
+    ]
+   },
+   {
+    "start": 3.54,
+    "dur": 3.42,
+    "words": [
+     {
+      "w": "Main",
+      "s": 3.54,
+      "e": 4.1
+     },
+     {
+      "w": "Claude",
+      "s": 4.14,
+      "e": 4.54
+     },
+     {
+      "w": "Pro",
+      "s": 4.54,
+      "e": 4.74
+     },
+     {
+      "w": "lene",
+      "s": 4.74,
+      "e": 4.96
+     },
+     {
+      "w": "wala",
+      "s": 4.96,
+      "e": 5.16
+     },
+     {
+      "w": "tha",
+      "s": 5.16,
+      "e": 5.3
+     },
+     {
+      "w": "do",
+      "s": 5.78,
+      "e": 6.08
+     },
+     {
+      "w": "hazaar",
+      "s": 6.08,
+      "e": 6.34
+     },
+     {
+      "w": "rupaye",
+      "s": 6.34,
+      "e": 6.6
+     },
+     {
+      "w": "mahina",
+      "s": 6.6,
+      "e": 6.96
+     }
+    ]
+   },
+   {
+    "start": 7.4,
+    "dur": 2.26,
+    "words": [
+     {
+      "w": "Socha",
+      "s": 7.4,
+      "e": 7.626
+     },
+     {
+      "w": "tha",
+      "s": 7.626,
+      "e": 7.852
+     },
+     {
+      "w": "paise",
+      "s": 7.852,
+      "e": 8.078
+     },
+     {
+      "w": "dunga",
+      "s": 8.078,
+      "e": 8.304
+     },
+     {
+      "w": "to",
+      "s": 8.304,
+      "e": 8.53
+     },
+     {
+      "w": "video",
+      "s": 8.53,
+      "e": 8.756
+     },
+     {
+      "w": "khud",
+      "s": 8.756,
+      "e": 8.982
+     },
+     {
+      "w": "hi",
+      "s": 8.982,
+      "e": 9.208
+     },
+     {
+      "w": "ban",
+      "s": 9.208,
+      "e": 9.434
+     },
+     {
+      "w": "jayegi",
+      "s": 9.434,
+      "e": 9.66
+     }
+    ]
+   },
+   {
+    "start": 10.12,
+    "dur": 1.8,
+    "words": [
+     {
+      "w": "Par",
+      "s": 10.12,
+      "e": 10.345
+     },
+     {
+      "w": "ek",
+      "s": 10.345,
+      "e": 10.57
+     },
+     {
+      "w": "pehla",
+      "s": 10.57,
+      "e": 10.795
+     },
+     {
+      "w": "sach",
+      "s": 10.795,
+      "e": 11.02
+     },
+     {
+      "w": "koi",
+      "s": 11.02,
+      "e": 11.245
+     },
+     {
+      "w": "batata",
+      "s": 11.245,
+      "e": 11.47
+     },
+     {
+      "w": "hi",
+      "s": 11.47,
+      "e": 11.695
+     },
+     {
+      "w": "nahi",
+      "s": 11.695,
+      "e": 11.92
+     }
+    ]
+   },
+   {
+    "start": 12.28,
+    "dur": 2.9,
+    "words": [
+     {
+      "w": "Claude",
+      "s": 12.28,
+      "e": 12.72
+     },
+     {
+      "w": "video",
+      "s": 12.72,
+      "e": 13.08
+     },
+     {
+      "w": "nahi",
+      "s": 13.08,
+      "e": 13.2
+     },
+     {
+      "w": "banata",
+      "s": 13.2,
+      "e": 13.36
+     },
+     {
+      "w": "wo",
+      "s": 13.36,
+      "e": 13.56
+     },
+     {
+      "w": "sirf",
+      "s": 13.94,
+      "e": 14.02
+     },
+     {
+      "w": "code",
+      "s": 14.02,
+      "e": 14.34
+     },
+     {
+      "w": "hi",
+      "s": 14.34,
+      "e": 14.78
+     },
+     {
+      "w": "deta",
+      "s": 14.78,
+      "e": 15.1
+     },
+     {
+      "w": "hai",
+      "s": 15.1,
+      "e": 15.18
+     }
+    ]
+   },
+   {
+    "start": 15.18,
+    "dur": 3.8,
+    "words": [
+     {
+      "w": "Us",
+      "s": 15.18,
+      "e": 15.525
+     },
+     {
+      "w": "code",
+      "s": 15.525,
+      "e": 15.871
+     },
+     {
+      "w": "ko",
+      "s": 15.871,
+      "e": 16.216
+     },
+     {
+      "w": "chalana",
+      "s": 16.216,
+      "e": 16.562
+     },
+     {
+      "w": "aur",
+      "s": 16.562,
+      "e": 16.907
+     },
+     {
+      "w": "render",
+      "s": 16.907,
+      "e": 17.253
+     },
+     {
+      "w": "karna",
+      "s": 17.253,
+      "e": 17.598
+     },
+     {
+      "w": "sab",
+      "s": 17.598,
+      "e": 17.944
+     },
+     {
+      "w": "tumhare",
+      "s": 17.944,
+      "e": 18.289
+     },
+     {
+      "w": "sar",
+      "s": 18.289,
+      "e": 18.635
+     },
+     {
+      "w": "par",
+      "s": 18.635,
+      "e": 18.98
+     }
+    ]
+   },
+   {
+    "start": 19.46,
+    "dur": 4.7,
+    "words": [
+     {
+      "w": "Mera",
+      "s": 19.46,
+      "e": 19.773
+     },
+     {
+      "w": "dost",
+      "s": 19.773,
+      "e": 20.087
+     },
+     {
+      "w": "bola",
+      "s": 20.087,
+      "e": 20.4
+     },
+     {
+      "w": "Pro",
+      "s": 20.4,
+      "e": 20.713
+     },
+     {
+      "w": "wale",
+      "s": 20.713,
+      "e": 21.027
+     },
+     {
+      "w": "bhaiya",
+      "s": 21.027,
+      "e": 21.34
+     },
+     {
+      "w": "ab",
+      "s": 21.34,
+      "e": 21.653
+     },
+     {
+      "w": "editor",
+      "s": 21.653,
+      "e": 21.967
+     },
+     {
+      "w": "bhi",
+      "s": 21.967,
+      "e": 22.28
+     },
+     {
+      "w": "ban",
+      "s": 22.28,
+      "e": 22.593
+     },
+     {
+      "w": "jao",
+      "s": 22.593,
+      "e": 22.907
+     },
+     {
+      "w": "Aur",
+      "s": 22.907,
+      "e": 23.22
+     },
+     {
+      "w": "khub",
+      "s": 23.22,
+      "e": 23.533
+     },
+     {
+      "w": "has",
+      "s": 23.533,
+      "e": 23.847
+     },
+     {
+      "w": "pada",
+      "s": 23.847,
+      "e": 24.16
+     }
+    ]
+   },
+   {
+    "start": 24.16,
+    "dur": 2.3,
+    "words": [
+     {
+      "w": "Sach",
+      "s": 24.16,
+      "e": 24.369
+     },
+     {
+      "w": "ye",
+      "s": 24.369,
+      "e": 24.578
+     },
+     {
+      "w": "hai",
+      "s": 24.578,
+      "e": 24.787
+     },
+     {
+      "w": "ki",
+      "s": 24.787,
+      "e": 24.996
+     },
+     {
+      "w": "aadhi",
+      "s": 24.996,
+      "e": 25.205
+     },
+     {
+      "w": "janta",
+      "s": 25.205,
+      "e": 25.415
+     },
+     {
+      "w": "aise",
+      "s": 25.415,
+      "e": 25.624
+     },
+     {
+      "w": "hi",
+      "s": 25.624,
+      "e": 25.833
+     },
+     {
+      "w": "paise",
+      "s": 25.833,
+      "e": 26.042
+     },
+     {
+      "w": "phansati",
+      "s": 26.042,
+      "e": 26.251
+     },
+     {
+      "w": "hai",
+      "s": 26.251,
+      "e": 26.46
+     }
+    ]
+   },
+   {
+    "start": 27.0,
+    "dur": 2.82,
+    "words": [
+     {
+      "w": "Phir",
+      "s": 27.0,
+      "e": 27.256
+     },
+     {
+      "w": "mujhe",
+      "s": 27.256,
+      "e": 27.513
+     },
+     {
+      "w": "ek",
+      "s": 27.513,
+      "e": 27.769
+     },
+     {
+      "w": "free",
+      "s": 27.769,
+      "e": 28.025
+     },
+     {
+      "w": "tool",
+      "s": 28.025,
+      "e": 28.282
+     },
+     {
+      "w": "mila",
+      "s": 28.282,
+      "e": 28.538
+     },
+     {
+      "w": "uska",
+      "s": 28.538,
+      "e": 28.795
+     },
+     {
+      "w": "naam",
+      "s": 28.795,
+      "e": 29.051
+     },
+     {
+      "w": "comment",
+      "s": 29.051,
+      "e": 29.307
+     },
+     {
+      "w": "me",
+      "s": 29.307,
+      "e": 29.564
+     },
+     {
+      "w": "milega",
+      "s": 29.564,
+      "e": 29.82
+     }
+    ]
+   },
+   {
+    "start": 29.82,
+    "dur": 5.12,
+    "words": [
+     {
+      "w": "Hindi",
+      "s": 29.82,
+      "e": 30.186
+     },
+     {
+      "w": "me",
+      "s": 30.186,
+      "e": 30.551
+     },
+     {
+      "w": "ek",
+      "s": 30.551,
+      "e": 30.917
+     },
+     {
+      "w": "line",
+      "s": 30.917,
+      "e": 31.283
+     },
+     {
+      "w": "likhi",
+      "s": 31.283,
+      "e": 31.649
+     },
+     {
+      "w": "meri",
+      "s": 31.649,
+      "e": 32.014
+     },
+     {
+      "w": "agency",
+      "s": 32.014,
+      "e": 32.38
+     },
+     {
+      "w": "ki",
+      "s": 32.38,
+      "e": 32.746
+     },
+     {
+      "w": "reel",
+      "s": 32.746,
+      "e": 33.111
+     },
+     {
+      "w": "bana",
+      "s": 33.111,
+      "e": 33.477
+     },
+     {
+      "w": "do",
+      "s": 33.477,
+      "e": 33.843
+     },
+     {
+      "w": "aur",
+      "s": 33.843,
+      "e": 34.209
+     },
+     {
+      "w": "reel",
+      "s": 34.209,
+      "e": 34.574
+     },
+     {
+      "w": "taiyaar",
+      "s": 34.574,
+      "e": 34.94
+     }
+    ]
+   },
+   {
+    "start": 35.38,
+    "dur": 3.74,
+    "words": [
+     {
+      "w": "Script",
+      "s": 35.38,
+      "e": 35.754
+     },
+     {
+      "w": "awaaz",
+      "s": 35.754,
+      "e": 36.128
+     },
+     {
+      "w": "visuals",
+      "s": 36.128,
+      "e": 36.502
+     },
+     {
+      "w": "teeno",
+      "s": 36.502,
+      "e": 36.876
+     },
+     {
+      "w": "bhi",
+      "s": 36.876,
+      "e": 37.25
+     },
+     {
+      "w": "usi",
+      "s": 37.25,
+      "e": 37.624
+     },
+     {
+      "w": "ne",
+      "s": 37.624,
+      "e": 37.998
+     },
+     {
+      "w": "jode",
+      "s": 37.998,
+      "e": 38.372
+     },
+     {
+      "w": "zero",
+      "s": 38.372,
+      "e": 38.746
+     },
+     {
+      "w": "rupaye",
+      "s": 38.746,
+      "e": 39.12
+     }
+    ]
+   },
+   {
+    "start": 39.72,
+    "dur": 2.92,
+    "words": [
+     {
+      "w": "Andar",
+      "s": 39.72,
+      "e": 39.929
+     },
+     {
+      "w": "asal",
+      "s": 39.929,
+      "e": 40.137
+     },
+     {
+      "w": "me",
+      "s": 40.137,
+      "e": 40.346
+     },
+     {
+      "w": "ye",
+      "s": 40.346,
+      "e": 40.554
+     },
+     {
+      "w": "hota",
+      "s": 40.554,
+      "e": 40.763
+     },
+     {
+      "w": "hai",
+      "s": 40.763,
+      "e": 40.971
+     },
+     {
+      "w": "tool",
+      "s": 40.971,
+      "e": 41.18
+     },
+     {
+      "w": "tumhari",
+      "s": 41.18,
+      "e": 41.389
+     },
+     {
+      "w": "line",
+      "s": 41.389,
+      "e": 41.597
+     },
+     {
+      "w": "ko",
+      "s": 41.597,
+      "e": 41.806
+     },
+     {
+      "w": "scenes",
+      "s": 41.806,
+      "e": 42.014
+     },
+     {
+      "w": "me",
+      "s": 42.014,
+      "e": 42.223
+     },
+     {
+      "w": "todta",
+      "s": 42.223,
+      "e": 42.431
+     },
+     {
+      "w": "hai",
+      "s": 42.431,
+      "e": 42.64
+     }
+    ]
+   },
+   {
+    "start": 42.9,
+    "dur": 2.9,
+    "words": [
+     {
+      "w": "Har",
+      "s": 42.9,
+      "e": 43.164
+     },
+     {
+      "w": "ek",
+      "s": 43.164,
+      "e": 43.427
+     },
+     {
+      "w": "scene",
+      "s": 43.427,
+      "e": 43.691
+     },
+     {
+      "w": "par",
+      "s": 43.691,
+      "e": 43.955
+     },
+     {
+      "w": "awaaz",
+      "s": 43.955,
+      "e": 44.218
+     },
+     {
+      "w": "aur",
+      "s": 44.218,
+      "e": 44.482
+     },
+     {
+      "w": "tasveer",
+      "s": 44.482,
+      "e": 44.745
+     },
+     {
+      "w": "khud",
+      "s": 44.745,
+      "e": 45.009
+     },
+     {
+      "w": "bitha",
+      "s": 45.009,
+      "e": 45.273
+     },
+     {
+      "w": "deta",
+      "s": 45.273,
+      "e": 45.536
+     },
+     {
+      "w": "hai",
+      "s": 45.536,
+      "e": 45.8
+     }
+    ]
+   },
+   {
+    "start": 46.3,
+    "dur": 3.65,
+    "words": [
+     {
+      "w": "Ek",
+      "s": 46.3,
+      "e": 46.528
+     },
+     {
+      "w": "sach",
+      "s": 46.528,
+      "e": 46.756
+     },
+     {
+      "w": "aur",
+      "s": 46.756,
+      "e": 46.984
+     },
+     {
+      "w": "free",
+      "s": 46.984,
+      "e": 47.212
+     },
+     {
+      "w": "plan",
+      "s": 47.212,
+      "e": 47.441
+     },
+     {
+      "w": "me",
+      "s": 47.441,
+      "e": 47.669
+     },
+     {
+      "w": "chhota",
+      "s": 47.669,
+      "e": 47.897
+     },
+     {
+      "w": "sa",
+      "s": 47.897,
+      "e": 48.125
+     },
+     {
+      "w": "watermark",
+      "s": 48.125,
+      "e": 48.353
+     },
+     {
+      "w": "aata",
+      "s": 48.353,
+      "e": 48.581
+     },
+     {
+      "w": "hai",
+      "s": 48.581,
+      "e": 48.809
+     },
+     {
+      "w": "try",
+      "s": 48.809,
+      "e": 49.038
+     },
+     {
+      "w": "karna",
+      "s": 49.038,
+      "e": 49.266
+     },
+     {
+      "w": "bilkul",
+      "s": 49.266,
+      "e": 49.494
+     },
+     {
+      "w": "free",
+      "s": 49.494,
+      "e": 49.722
+     },
+     {
+      "w": "hai",
+      "s": 49.722,
+      "e": 49.95
+     }
+    ]
+   },
+   {
+    "start": 50.08,
+    "dur": 8.22,
+    "words": [
+     {
+      "w": "Ab",
+      "s": 50.08,
+      "e": 50.491
+     },
+     {
+      "w": "tum",
+      "s": 50.491,
+      "e": 50.902
+     },
+     {
+      "w": "faisla",
+      "s": 50.902,
+      "e": 51.313
+     },
+     {
+      "w": "karo",
+      "s": 51.313,
+      "e": 51.724
+     },
+     {
+      "w": "do",
+      "s": 51.724,
+      "e": 52.135
+     },
+     {
+      "w": "hazaar",
+      "s": 52.135,
+      "e": 52.546
+     },
+     {
+      "w": "wala",
+      "s": 52.546,
+      "e": 52.957
+     },
+     {
+      "w": "Pro",
+      "s": 52.957,
+      "e": 53.368
+     },
+     {
+      "w": "ya",
+      "s": 53.368,
+      "e": 53.779
+     },
+     {
+      "w": "free",
+      "s": 53.779,
+      "e": 54.19
+     },
+     {
+      "w": "wala",
+      "s": 54.19,
+      "e": 54.601
+     },
+     {
+      "w": "dimaag",
+      "s": 54.601,
+      "e": 55.012
+     },
+     {
+      "w": "Comment",
+      "s": 55.012,
+      "e": 55.423
+     },
+     {
+      "w": "me",
+      "s": 55.423,
+      "e": 55.834
+     },
+     {
+      "w": "VIDEO",
+      "s": 55.834,
+      "e": 56.245
+     },
+     {
+      "w": "likho",
+      "s": 56.245,
+      "e": 56.656
+     },
+     {
+      "w": "tool",
+      "s": 56.656,
+      "e": 57.067
+     },
+     {
+      "w": "follow",
+      "s": 57.067,
+      "e": 57.478
+     },
+     {
+      "w": "karke",
+      "s": 57.478,
+      "e": 57.889
+     },
+     {
+      "w": "milega",
+      "s": 57.889,
+      "e": 58.3
+     }
+    ]
+   }
+  ],
+  "total": 59.2,
+  "expr": [
+   [
+    0.0,
+    "talking"
+   ],
+   [
+    3.44,
+    "thinking"
+   ],
+   [
+    7.3,
+    "talking"
+   ],
+   [
+    10.02,
+    "surprised"
+   ],
+   [
+    12.18,
+    "explaining"
+   ],
+   [
+    15.08,
+    "determined"
+   ],
+   [
+    19.36,
+    "laugh"
+   ],
+   [
+    24.06,
+    "talking"
+   ],
+   [
+    26.9,
+    "pointing"
+   ],
+   [
+    29.72,
+    "explaining"
+   ],
+   [
+    35.28,
+    "thumbsup"
+   ],
+   [
+    39.62,
+    "explaining"
+   ],
+   [
+    42.8,
+    "talking"
+   ],
+   [
+    46.2,
+    "neutral"
+   ],
+   [
+    49.98,
+    "pointing"
+   ],
+   [
+    57.45,
+    "wink"
+   ]
+  ],
+  "stk": [
+   [
+    0.152,
+    "✍️"
+   ],
+   [
+    5.421,
+    "💳"
+   ],
+   [
+    14.165,
+    "💻"
+   ],
+   [
+    16.7,
+    "😮‍💨"
+   ],
+   [
+    23.455,
+    "😂"
+   ],
+   [
+    28.551,
+    "🔒"
+   ],
+   [
+    31.356,
+    "⌨️"
+   ],
+   [
+    38.372,
+    "🪙"
+   ],
+   [
+    48.125,
+    "💧"
+   ],
+   [
+    51.313,
+    "🎯"
+   ]
+  ]
+ },
+ "SCENES": [
+  {
+   "pill": "HOOK · EK LINE = EK REEL",
+   "l1": "Ek line likhi…",
+   "l2": "poori reel ban gayi!",
+   "kw": [
+    "line",
+    "reel"
+   ],
+   "card": {
+    "hero": "✍️",
+    "big": "Ek line = <span class='g'>Poori Reel</span>",
+    "rows": [
+     [
+      "🎬",
+      "Script khud"
+     ],
+     [
+      "🎙",
+      "Awaaz khud"
+     ],
+     [
+      "✂️",
+      "Edit khud"
+     ]
+    ],
+    "rowAt": [
+     0.35,
+     0.52,
+     0.68
+    ],
+    "foot": "Kaise? Aage dekho…"
+   },
+   "t0": 0.0,
+   "t1": 3.44
+  },
+  {
+   "pill": "STAKES · PAISA",
+   "l1": "Claude PRO lene wala tha",
+   "l2": "₹2,000 mahina!",
+   "kw": [
+    "Claude",
+    "Pro",
+    "hazaar"
+   ],
+   "card": {
+    "hero": "💳",
+    "heroAt": 0.45,
+    "big": "₹2,000<span class='g'>/mahina</span>",
+    "bigsub": "Claude Pro — lene hi wala tha",
+    "rows": [
+     [
+      "📅",
+      "Har mahine katega"
+     ]
+    ],
+    "rowAt": [
+     0.7
+    ],
+    "foot": "Paise dene se pehle ye sun lo"
+   },
+   "t0": 3.42,
+   "t1": 7.3
+  },
+  {
+   "pill": "UMEED",
+   "l1": "Paise dunga to",
+   "l2": "video khud banegi?",
+   "kw": [
+    "video"
+   ],
+   "card": {
+    "hero": "🤞",
+    "big": "Video <span class='g'>khud</span> banegi?",
+    "bigsub": "Meri umeed bilkul yahi thi",
+    "rows": [
+     [
+      "🎞",
+      "Editor ka jhanjhat khatm"
+     ]
+    ],
+    "rowAt": [
+     0.55
+    ]
+   },
+   "t0": 7.28,
+   "t1": 10.02
+  },
+  {
+   "pill": "SACH #1",
+   "l1": "Par pehla SACH",
+   "l2": "koi batata hi nahi",
+   "kw": [
+    "sach"
+   ],
+   "card": {
+    "hero": "⚠️",
+    "big": "SACH <span class='g'>#1</span>",
+    "bigsub": "Jo koi khul ke batata hi nahi",
+    "rows": [
+     [
+      "🙊",
+      "Tumhe pata tha?"
+     ]
+    ],
+    "rowAt": [
+     0.6
+    ]
+   },
+   "t0": 10.0,
+   "t1": 12.18
+  },
+  {
+   "pill": "SACH · CODE ≠ VIDEO",
+   "l1": "Claude video NAHI banata",
+   "l2": "sirf CODE deta hai",
+   "kw": [
+    "video",
+    "code"
+   ],
+   "card": {
+    "kind": "code",
+    "hero": "💻",
+    "big": "CODE milega",
+    "bigsub": "Video file NAHI",
+    "rows": []
+   },
+   "t0": 12.16,
+   "t1": 15.08
+  },
+  {
+   "pill": "ASLI MEHNAT",
+   "l1": "Code chalana, render karna",
+   "l2": "sab TUMHARE sar par",
+   "kw": [
+    "render",
+    "tumhare"
+   ],
+   "card": {
+    "kind": "bar",
+    "hero": "⏳",
+    "big": "Render <span class='g'>tumhare</span> sar par",
+    "rows": [
+     [
+      "🧑‍💻",
+      "Editor bhi tum hi"
+     ]
+    ],
+    "rowAt": [
+     0.8
+    ]
+   },
+   "t0": 15.13,
+   "t1": 19.36
+  },
+  {
+   "pill": "DOST KI HANSI",
+   "l1": "Dost bola — Pro wale bhaiya",
+   "l2": "ab EDITOR bhi ban jao!",
+   "kw": [
+    "editor",
+    "has"
+   ],
+   "card": {
+    "kind": "quote",
+    "hero": "😂",
+    "rows": [
+     [
+      "🗣",
+      "Dost ki salah — bilkul free"
+     ]
+    ],
+    "rowAt": [
+     0.8
+    ],
+    "foot": "Hansi me chhupa sach"
+   },
+   "t0": 19.34,
+   "t1": 24.06
+  },
+  {
+   "pill": "HAQIQAT",
+   "l1": "Aadhi janta aise hi",
+   "l2": "paise phansati hai",
+   "kw": [
+    "paise"
+   ],
+   "card": {
+    "hero": "💸",
+    "big": "Aadhi <span class='g'>janta</span>",
+    "bigsub": "aise hi paise phansa leti hai",
+    "rows": [
+     [
+      "🕳",
+      "Pro liya — video phir bhi nahi"
+     ]
+    ],
+    "rowAt": [
+     0.55
+    ]
+   },
+   "t0": 24.11,
+   "t1": 26.9
+  },
+  {
+   "pill": "FREE TOOL",
+   "l1": "Phir mila ek FREE tool",
+   "l2": "naam comment me milega",
+   "kw": [
+    "free",
+    "tool",
+    "naam"
+   ],
+   "card": {
+    "kind": "lock",
+    "big": "FREE <span class='g'>TOOL</span>",
+    "bigsub": "Naam comment me milega",
+    "rows": [
+     [
+      "🔑",
+      "Follow karke khulta hai"
+     ]
+    ],
+    "rowAt": [
+     0.65
+    ]
+   },
+   "t0": 26.88,
+   "t1": 29.72
+  },
+  {
+   "pill": "EK LINE · HINDI ME",
+   "l1": "Hindi me ek line likhi",
+   "l2": "reel taiyaar!",
+   "kw": [
+    "Hindi",
+    "line",
+    "taiyaar"
+   ],
+   "card": {
+    "kind": "typing",
+    "hero": "⌨️",
+    "big": "Hindi me <span class='g'>ek line</span>",
+    "rows": [
+     [
+      "🎬",
+      "Aur reel taiyaar ho gayi"
+     ]
+    ],
+    "rowAt": [
+     0.78
+    ]
+   },
+   "t0": 29.77,
+   "t1": 35.28
+  },
+  {
+   "pill": "PAYOFF · ₹0",
+   "l1": "Script · Awaaz · Visuals",
+   "l2": "teeno usi ne jode — ₹0",
+   "kw": [
+    "Script",
+    "awaaz",
+    "visuals",
+    "zero"
+   ],
+   "card": {
+    "hero": "🪙",
+    "big": "₹0 <span class='g'>— Zero rupaye</span>",
+    "rows": [
+     [
+      "✓",
+      "Script"
+     ],
+     [
+      "✓",
+      "Awaaz"
+     ],
+     [
+      "✓",
+      "Visuals"
+     ]
+    ],
+    "rowAt": [
+     0.08,
+     0.26,
+     0.44
+    ],
+    "foot": "Teeno usi tool ne jode"
+   },
+   "t0": 35.26,
+   "t1": 39.62
+  },
+  {
+   "pill": "ANDAR KA KAAM",
+   "l1": "Tool line ko todta hai",
+   "l2": "scenes me, andar se",
+   "kw": [
+    "scenes"
+   ],
+   "card": {
+    "hero": "🧩",
+    "big": "Line → <span class='g'>Scenes</span>",
+    "bigsub": "Tool andar se aise kaam karta hai",
+    "rows": [
+     [
+      "✂️",
+      "Har scene — alag tukda"
+     ]
+    ],
+    "rowAt": [
+     0.6
+    ]
+   },
+   "t0": 39.6,
+   "t1": 42.8
+  },
+  {
+   "pill": "AUTO SYNC",
+   "l1": "Har scene par awaaz",
+   "l2": "aur tasveer khud",
+   "kw": [
+    "awaaz",
+    "tasveer"
+   ],
+   "card": {
+    "hero": "🔊",
+    "big": "Awaaz + <span class='g'>Tasveer</span>",
+    "bigsub": "Har scene par khud baith jati hai",
+    "rows": [
+     [
+      "🖼",
+      "Visual bhi khud chunta hai"
+     ]
+    ],
+    "rowAt": [
+     0.62
+    ]
+   },
+   "t0": 42.78,
+   "t1": 46.2
+  },
+  {
+   "pill": "IMANDAARI WALA SACH",
+   "l1": "Ek sach aur — free plan me",
+   "l2": "watermark aata hai",
+   "kw": [
+    "watermark",
+    "free"
+   ],
+   "card": {
+    "kind": "wm",
+    "hero": "💧",
+    "big": "Ek sach <span class='g'>aur</span>",
+    "bigsub": "Free plan me chhota watermark aata hai",
+    "rows": [],
+    "foot": "Try karna bilkul free hai — ye main chhupata nahi"
+   },
+   "t0": 46.18,
+   "t1": 49.98
+  },
+  {
+   "pill": "FAISLA · VIDEO LIKHO",
+   "l1": "PRO ₹2,000 ya FREE dimaag?",
+   "l2": "VIDEO likho, tool milega",
+   "kw": [
+    "Pro",
+    "free",
+    "VIDEO"
+   ],
+   "card": {
+    "kind": "versus",
+    "foot": "Comment me VIDEO likho — tool follow karke milega"
+   },
+   "t0": 49.96,
+   "t1": 59.2
+  }
+ ]
+}
