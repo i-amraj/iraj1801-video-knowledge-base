@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1080, height=1920" />
+<script src="assets/vendor/gsap.min.js"></script>
+<link rel="stylesheet" href="assets/vendor/fonts.css">
+<link rel="stylesheet" href="assets/brand.css" />
+<link rel="stylesheet" href="assets/md.css" />
+<link rel="stylesheet" href="assets/md-world.css" />
+<link rel="stylesheet" href="assets/theme.css" />
+<script src="assets/beats.js"></script>
+<script src="assets/coins.js"></script>
+<style>
+.md-grain{display:none!important}
+#root *{font-family:'Poppins',sans-serif!important}
+:root{ --font-display:'Poppins',sans-serif; --font-body:'Poppins',sans-serif; }
+html,body{width:1080px;height:1920px;background:#071410;overflow:hidden}
+body{font-family:'Poppins',sans-serif}
+#silk{position:absolute;inset:0;width:1080px;height:1920px}
+#root{background:radial-gradient(1200px 800px at 50% 18%, #0C3A26 0%, #071410 62%)}
+#bgpools{position:absolute;inset:0;opacity:.55;overflow:hidden}
+.pool{position:absolute;border-radius:50%}
+.p1{width:1050px;height:1050px;left:-260px;top:120px;background:radial-gradient(closest-side, rgba(53,217,154,.20), rgba(53,217,154,0) 72%)}
+.p2{width:900px;height:900px;right:-300px;top:820px;background:radial-gradient(closest-side, rgba(20,140,90,.22), rgba(20,140,90,0) 72%)}
+.p3{width:760px;height:760px;left:180px;top:1380px;background:radial-gradient(closest-side, rgba(255,201,60,.08), rgba(255,201,60,0) 72%)}
+.spill{position:absolute;top:196px;left:76px;padding:16px 30px;border-radius:999px;
+  font-size:28px;font-weight:700;letter-spacing:.16em;color:var(--ink)}
+.sh{position:absolute;left:76px;width:932px;font-weight:800;font-size:66px;line-height:1.05;
+  letter-spacing:-0.02em;color:var(--ink)}
+#root .sh{white-space:normal}
+h1.sh{top:296px} h2.sh{top:388px;font-size:66px}
+.md-lit{color:#8CF5C8;text-shadow:0 0 30px rgba(14,159,110,.9)}
+.scard{position:absolute;left:70px;top:560px;width:940px;height:660px;border-radius:34px;
+  padding:44px 48px;box-sizing:border-box}
+.hero{font-size:96px;line-height:1;text-align:center;margin-top:2px}
+.big{font-size:88px;font-weight:800;text-align:center;color:var(--ink);letter-spacing:-0.02em;line-height:1.08;margin-top:10px}
+.big .g{color:#8CF5C8}
+.bigsub{text-align:center;font-size:36px;color:var(--muted);margin-top:12px;font-weight:600}
+.rows{margin-top:30px;display:flex;flex-direction:column;gap:16px}
+.srow{display:flex;align-items:center;gap:20px;background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.13);border-radius:20px;padding:20px 28px;
+  font-size:38px;font-weight:600;color:var(--ink)}
+.srow .ric{font-size:40px}
+.foot{position:absolute;left:48px;right:48px;bottom:34px;text-align:center;font-size:31px;color:var(--muted);font-weight:600}
+.codewin{margin-top:26px;background:rgba(0,0,0,.38);border:1px solid rgba(255,255,255,.12);
+  border-radius:18px;padding:22px 26px;font-family:'JetBrains Mono',monospace;font-size:31px;line-height:1.5;color:#CFE8DA}
+.cline{white-space:nowrap} .cline .cn{display:inline-block;width:44px;color:#5F7A6B}
+.xchip{margin:26px auto 0;width:fit-content;background:rgba(198,40,40,.18);border:1.5px solid rgba(255,90,80,.65);
+  color:#FF9D94;font-weight:700;font-size:34px;padding:14px 30px;border-radius:999px}
+.track{margin-top:44px;height:38px;border-radius:999px;background:rgba(255,255,255,.10);overflow:hidden}
+.fill{height:100%;width:100%;transform-origin:left;background:linear-gradient(90deg,#0E9F6E,#35D99A);border-radius:999px}
+.quote{font-size:56px;font-weight:700;line-height:1.25;color:var(--ink);text-align:center;margin-top:26px;padding:0 8px}
+.lockplate{margin:34px auto 0;width:fit-content;display:flex;align-items:center;gap:22px;
+  background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.14);border-radius:22px;padding:24px 36px;position:relative}
+.lockic{font-size:64px} .blur-name{font-size:52px;font-weight:800;color:var(--ink);filter:blur(9px)}
+.stamp{position:absolute;right:-24px;top:-22px;background:#C62828;color:#fff;font-weight:800;font-size:28px;
+  letter-spacing:.14em;padding:8px 16px;border-radius:8px;transform:rotate(-12deg)}
+.typewin{margin-top:28px;background:rgba(0,0,0,.38);border:1.5px solid rgba(140,245,200,.4);border-radius:18px;
+  padding:26px 30px;font-size:44px;font-weight:600;color:var(--ink)}
+.tprompt{color:#8CF5C8;margin-right:14px} .tch{opacity:0}
+.caret{display:inline-block;width:5px;height:46px;background:#8CF5C8;margin-left:6px;vertical-align:-6px}
+.reelmock{margin:30px auto 0;width:300px;height:300px;border-radius:26px;position:relative;overflow:hidden;
+  background:linear-gradient(150deg,rgba(255,255,255,.16),rgba(255,255,255,.05));border:1px solid rgba(255,255,255,.16)}
+.reelmock .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:84px;color:rgba(242,251,245,.85)}
+.wmband{position:absolute;left:-40px;right:-40px;top:198px;transform:rotate(-18deg);text-align:center;
+  background:rgba(198,40,40,.55);color:#fff;font-weight:800;letter-spacing:.3em;font-size:30px;padding:8px 0}
+.disc{width:118px;height:118px;border-radius:50%;margin:0 auto 18px;overflow:hidden;
+  border:2px solid rgba(140,245,200,.55);box-shadow:0 0 60px -10px rgba(14,159,110,.65)}
+.disc img{width:100%;height:100%;object-fit:cover}
+.versus{display:flex;gap:22px;margin-top:6px}
+.vplate{flex:1;border-radius:26px;padding:30px 22px;text-align:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13)}
+.vplate.good{border-color:rgba(140,245,200,.55);box-shadow:0 0 60px -12px rgba(14,159,110,.55)}
+.vname{font-size:30px;font-weight:700;letter-spacing:.12em;color:var(--muted)}
+.vprice{font-size:74px;font-weight:800;color:var(--ink);margin-top:10px}
+.vprice span{font-size:32px;color:var(--muted)}
+.vmark{margin-top:14px;font-size:33px;font-weight:700}
+.vmark.no{color:#FF9D94} .vmark.ok{color:#8CF5C8}
+.cta{margin:34px auto 0;width:fit-content;background:linear-gradient(180deg,#12B981,#0E9F6E);color:#fff;
+  font-size:42px;font-weight:700;padding:24px 46px;border-radius:999px;box-shadow:0 24px 60px -14px rgba(14,159,110,.7)}
+.pchips{display:flex;gap:16px;justify-content:center;margin-top:26px}
+.pchip{background:rgba(140,245,200,.14);border:1.5px solid rgba(140,245,200,.5);color:#8CF5C8;
+  font-size:36px;font-weight:700;padding:14px 28px;border-radius:999px}
+#coinsGL{position:absolute;left:70px;top:560px;z-index:5;opacity:0;pointer-events:none}
+.scard{z-index:2} .scard .big,.scard .pchips,.scard .foot{position:relative;z-index:6}
+#brandpill{position:absolute;top:64px;left:50%;transform:translateX(-50%);z-index:40;
+  padding:14px 30px;border-radius:999px;font-size:28px;font-weight:700;letter-spacing:.18em;color:var(--ink)}
+#charzone{position:absolute;left:26px;top:1396px;width:196px;height:212px;z-index:40}
+#charzone .pose{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+#bubblezone{position:absolute;left:238px;top:1428px;width:792px;z-index:40}
+.bubble{position:absolute;left:0;top:0;width:100%;box-sizing:border-box;opacity:0;
+  background:rgba(234,247,239,.96);color:#0B3D2E;border-radius:26px;padding:26px 32px;
+  font-size:47px;font-weight:600;line-height:1.3;box-shadow:0 30px 60px -20px rgba(0,0,0,.5)}
+.bubble::after{content:'';position:absolute;left:-13px;top:52px;width:26px;height:26px;
+  background:rgba(234,247,239,.96);transform:rotate(45deg)}
+.bw{display:inline-block;margin-right:14px;color:#54655B}
+.sticker{position:absolute;left:946px;top:1352px;z-index:41;width:92px;height:92px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:46px;opacity:0;
+  background:rgba(255,255,255,.14);border:1.5px solid rgba(255,255,255,.35)}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="59.2"
+     data-width="1080" data-height="1920" data-fps="50">
+  <audio id="score" data-start="0" data-duration="59.2" data-volume="1" src="assets/final_mix.wav"></audio>
+  <div id="bgpools"><div class="pool p1"></div><div class="pool p2"></div><div class="pool p3"></div></div>
+  
+<section id="s1" class="clip md-scene" data-start="0.0" data-duration="3.89">
+  <div class="md-world"><div class="md-rig" id="s1-rig" data-layout-allow-overflow>
+    <div class="spill md-glass" id="s1-pill">HOOK · EK LINE = EK REEL</div>
+    <h1 class="md-line sh" id="s1-l1" data-in="words@0.06" data-out="blur@3.16">Ek <span class='md-lit'>line</span> likhi…</h1>
+    <h2 class="md-line sh" id="s1-l2" data-in="words@0.24" data-out="blur@3.16">poori <span class='md-lit'>reel</span> ban gayi!</h2>
+    <div class="md-glass scard" id="s1-card"><div class='hero' id='s1-hero'>✍️</div><div class='big'>Ek line = <span class='g'>Poori Reel</span></div><div class='rows'><div class='srow' id='s1-row0'><span class='ric'>🎬</span><span>Script khud</span></div><div class='srow' id='s1-row1'><span class='ric'>🎙</span><span>Awaaz khud</span></div><div class='srow' id='s1-row2'><span class='ric'>✂️</span><span>Edit khud</span></div></div><div class='foot' id='s1-foot'>Kaise? Aage dekho…</div></div>
+    
+  </div></div>
+</section>
+<section id="s2" class="clip md-scene" data-start="3.42" data-duration="4.33">
+  <div class="md-world"><div class="md-rig" id="s2-rig" data-layout-allow-overflow>
+    <div class="spill md-glass" id="s2-pill">STAKES · PAISA</div>
+    <h1 class="md-line sh" id="s2-l1" data-in="words@3.48" data-out="blur@7.02"><span class='md-lit'>Claude</span> <span class='md-lit'>PRO</span> lene wala tha</h1>
+    <h2 class="md-line sh" id="s2-l2" data-in="words@3.66" data-out="blur@7.02">₹2,000 mahina!</h2>
+    <div class="md-glass scard" id="s2-card"><div class='hero' id='s2-hero'>💳</div><div class='big'>₹2,000<span class='g'>/mahina</span></div><div class='bigsub' id='s2-bigsub'>Claude Pro · lene hi wala tha</div><div class='rows'><div class='srow' id='s2-row0'><span class='ric'>📅</span><span>Har mahine katega</span></div></div><div class='foot' id='s2-foot'>Paise dene se pehle ye sun lo</div></div>
+    
+  </div></div>
+</section>
+<section id="s3" class="clip md-scene" data-start="7.28" data-duration="3.19">
+  <div class="md-world"><div class="md-rig" id="s3-rig" data-layout-allow-overflow>
+    <div class="spill md-glass" id="s3-pill">UMEED</div>
+    <h1 class="md-line sh" id="s3-l1" data-in="words@7.34" data-out="blur@9.74">Paise dunga to</h1>
+    <h2 class="md-line sh" id="s3-l2" data-in="words@7.52" data-out="blur@9.74"><span class='md-lit'>video</span> khud banegi?</h2>
+    <div class="md-glass scard" id="s3-card"><div class='hero' id='s3-hero'>🤞</div><div class='big'>Video <span class='g'>khud</span> banegi?</div><div class='bigsub' id='s3-bigsub'>Meri umeed bilkul yahi thi</div><div class='rows'><div class='srow' id='s3-row0'><span class='ric'>🎞</span><span>Editor ka jhanjhat khatm</span></div></div></div>
+    
+  </div></div>
+</section>
+<section id="s4" class="clip md-scene" data-start="10.0" data-duration="2.63">
+  <div class="md-world"><div class="md-rig" id="s4-rig" data-layout-allow-overflow>
+    <div class="spill md-glass" id="s4-pill">SACH #1</div>
+    <h1 class="md-line sh" id="s4-l1" data-in="words@10.06" data-out="blur@11.90">Par pehla <span class='md-lit'>SACH</span></h1>
+    <h2 class="md-line sh" id="s4-l2" data-in="words@10.24" data-out="blur@11.90">koi batata hi nahi</h2>
+    <div class="md-glass scard" id="s4-card"><div class='hero' id='s4-hero'>⚠️</div><div class='big'>SACH <span class='g'>#1</span></div><div class='bigsub' id='s4-bigsub'>Jo koi khul ke batata hi nahi</div><div class='rows'><div class='srow' id='s4-row0'><span class='ric'>🙊</span><span>Tumhe pata tha?</span></div></div></div>
+    
+  </div></div>
+</section>
+<section id="s5" class="clip md-scene" data-start="12.16" data-duration="3.37">
+  <div class="md-world"><div class="md-rig" id="s5-rig" data-layout-allow-overflow>
+    <div class="spill md-glass" id="s5-pill">SACH · CODE ≠ VIDEO</div>
+    <h1 class="md-line sh" id="s5-l1" data-in="words@12.22" data-out="blur@14.80">Claude <span class='md-lit'>video</span> NAHI banata</h1>
+    <h2 class="md-line sh" id="s5-l2" data-in="words@12.40" data-out="blur@14.80">sirf <span class='md-lit'>CODE</span> deta hai</h2>
+    <div class="md-glass scard" id="s5-card"><div class='hero' id='s5-hero'>💻</div><div class='big'>CODE milega</div><div class='bigsub' id='s5-bigsub'>Video file NAHI</div><div class='codewin'><div class='cline' id='s5-cl0'><span class='cn'>1</span>def reel(topic):</div><div class='cline' id='s5-cl1'><span class='cn'>2</span>    script = likho(topic)</div><div class='cline' id='s5-cl2'><span class='cn'>3</span>    return script  # bas text!</div><div class='cline' id='s5-cl3'><span class='cn'>4</span>    video = ???  # yaha atak gaya</div></div><div class='xchip' id='s5-chip'>✗ Video file NAHI milegi</div></div>
+    
+  </div></div>
+</section>
+<section id="s6" class="clip md-scene" data-start="15.13" data-duration="4.68">
+  <div class="md-world"><div class="md-rig" id="s6-rig" data-layout-allow-overflow>
+    <div class="spill md-glass" id="s6-pill">ASLI MEHNAT</div>
+    <h1 class="md-line sh" id="s6-l1" data-in="words@15.19" data-out="blur@19.08">Code chalana, <span class='md-lit'>render</span> karna</h1>
+    <h2 class="md-line sh" id="s6-l2" data-in="words@15.37" data-out="blur@19.08">sab <span class='md-lit'>TUMHARE</span> sar par</h2>
+    <div class="md-glass scard" id="s6-card"><div class='hero' id='s6-hero'>⏳</div><div class='big'>Render <span class='g'>tumhare</span> sar par</div><div class='track'><div class='fill' id='s6-fill'></div></div><div class='xchip' id='s6-chip'>⚠ Render Error: limit khatm!</div><div class='rows'><div class='srow' id='s6-row0'><span class='ric'>🧑‍💻</span><span>Editor bhi tum hi</span></div></div></div>
+    
+  </div></div>
+</section>
+<section id="s7" class="clip md-scene" data-start="19.34" data-duration="5.17">
+  <div class="md-world"><div class="md-rig" id="s7-rig" data-layout-allow-overflow>
+    <div class="spill md-glass" id="s7-pill">DOST KI HANSI</div>
+    <h1 class="md-line sh" id="s7-l1" data-in="words@19.40" data-out="blur@23.78">Dost bola · Pro wale bhaiya</h1>
+    <h2 class="md-line sh" id="s7-l2" data-in="words@19.58" data-out="blur@23.78">ab <span class='md-lit'>EDITOR</span> bhi ban jao!</h2>
+    <div class="md-glass scard" id="s7-card"><div class='hero' id='s7-hero'>😂</div><div class='quote'>“Mera dost bola Pro wale bhaiya ab editor bhi ban jao Aur khub has pada”</div><div class='rows'><div class='srow' id='s7-row0'><span class='ric'>🗣</span><span>Dost ki salah · bilkul free</span></div></div><div class='foot' id='s7-foot'>Hansi me chhupa sach</div></div>
+    
+  </div></div>
+</section>
+<section id="s8" class="clip md-scene" data-start="24.11" data-duration="3.24">
+  <div class="md-world"><div class="md-rig" id="s8-rig" data-layout-allow-overflow>
+    <div class="spill md-glass" id="s8-pill">HAQIQAT</div>
+    <h1 class="md-line sh" id="s8-l1" data-in="words@24.17" data-out="blur@26.62">Aadhi janta aise hi</h1>
+    <h2 class="md-line sh" id="s8-l2" data-in="words@24.35" data-out="blur@26.62"><span class='md-lit'>paise</span> phansati hai</h2>
+    <div class="md-glass scard" id="s8-card"><div class='hero' id='s8-hero'>💸</div><div class='big'>Aadhi <span class='g'>janta</span></div><div class='bigsub' id='s8-bigsub'>aise hi paise phansa leti hai</div><div class='rows'><div class='srow' id='s8-row0'><span class='ric'>🕳</span><span>Pro liya · video phir bhi nahi</span></div></div></div>
+    
+  </div></div>
+</section>
+<section id="s9" class="clip md-scene" data-start="26.88" data-duration="3.29">
+  <div class="md-world"><div class="md-rig" id="s9-rig" data-layout-allow-overflow>
+    <div class="spill md-glass" id="s9-pill">FREE TOOL</div>
+    <h1 class="md-line sh" id="s9-l1" data-in="words@26.94" data-out="blur@29.44">Phir mila ek <span class='md-lit'>FREE</span> <span class='md-lit'>tool</span></h1>
+    <h2 class="md-line sh" id="s9-l2" data-in="words@27.12" data-out="blur@29.44"><span class='md-lit'>naam</span> comment me milega</h2>
+    <div class="md-glass scard" id="s9-card"><div class='big'>FREE <span class='g'>TOOL</span></div><div class='bigsub' id='s9-bigsub'>Naam comment me milega</div><div class='lockplate'><span class='lockic'>🔒</span><span class='blur-name'>Fliki AI</span><span class='stamp' id='s9-stamp'>SECRET</span></div><div class='rows'><div class='srow' id='s9-row0'><span class='ric'>🔑</span><span>Follow karke khulta hai</span></div></div></div>
+    
+  </div></div>
+</section>
+<section id="s10" class="clip md-scene" data-start="29.77" data-duration="5.96">
+  <div class="md-world"><div class="md-rig" id="s10-rig" data-layout-allow-overflow>
+    <div class="spill md-glass" id="s10-pill">EK LINE · HINDI ME</div>
+    <h1 class="md-line sh" id="s10-l1" data-in="words@29.83" data-out="blur@35.00"><span class='md-lit'>Hindi</span> me ek <span class='md-lit'>line</span> likhi</h1>
+    <h2 class="md-line sh" id="s10-l2" data-in="words@30.01" data-out="blur@35.00">reel <span class='md-lit'>taiyaar</span>!</h2>
+    <div class="md-glass scard" id="s10-card"><div class='hero' id='s10-hero'>⌨️</div><div class='big'>Hindi me <span class='g'>ek line</span></div><div class='typewin'><span class='tprompt'>›</span><span class='tch' id='s10-tc0'>म</span><span class='tch' id='s10-tc1'>े</span><span class='tch' id='s10-tc2'>र</span><span class='tch' id='s10-tc3'>ी</span><span class='tch' id='s10-tc4'> </span><span class='tch' id='s10-tc5'>श</span><span class='tch' id='s10-tc6'>ा</span><span class='tch' id='s10-tc7'>द</span><span class='tch' id='s10-tc8'>ी</span><span class='tch' id='s10-tc9'> </span><span class='tch' id='s10-tc10'>क</span><span class='tch' id='s10-tc11'>ी</span><span class='tch' id='s10-tc12'> </span><span class='tch' id='s10-tc13'>व</span><span class='tch' id='s10-tc14'>ी</span><span class='tch' id='s10-tc15'>ड</span><span class='tch' id='s10-tc16'>ि</span><span class='tch' id='s10-tc17'>य</span><span class='tch' id='s10-tc18'>ो</span><span class='tch' id='s10-tc19'> </span><span class='tch' id='s10-tc20'>ब</span><span class='tch' id='s10-tc21'>न</span><span class='tch' id='s10-tc22'>ा</span><span class='tch' id='s10-tc23'> </span><span class='tch' id='s10-tc24'>द</span><span class='tch' id='s10-tc25'>ो</span><span class='caret' id='s10-caret'></span></div><div class='rows'><div class='srow' id='s10-row0'><span class='ric'>🎬</span><span>Aur reel taiyaar ho gayi</span></div></div></div>
+    
+  </div></div>
+</section>
+<section id="s11" class="clip md-scene" data-start="35.26" data-duration="4.81">
+  <div class="md-world"><div class="md-rig" id="s11-rig" data-layout-allow-overflow>
+    <div class="spill md-glass" id="s11-pill">PAYOFF · ₹0</div>
+    <h1 class="md-line sh" id="s11-l1" data-in="words@35.32" data-out="blur@39.34"><span class='md-lit'>Script</span> · <span class='md-lit'>Awaaz</span> · <span class='md-lit'>Visuals</span></h1>
+    <h2 class="md-line sh" id="s11-l2" data-in="words@35.50" data-out="blur@39.34">teeno usi ne jode · ₹0</h2>
+    <div class="md-glass scard" id="s11-card"><div class='big'>₹0 <span class='g'>· Zero rupaye</span></div><div class='pchips'><span class='pchip' id='s11-chip0'>✓ Script</span><span class='pchip' id='s11-chip1'>✓ Awaaz</span><span class='pchip' id='s11-chip2'>✓ Visuals</span></div><div class='foot' id='s11-foot'>Teeno usi tool ne jode</div></div>
+    <canvas id='coinsGL' width='940' height='660'></canvas>
+  </div></div>
+</section>
+<section id="s12" class="clip md-scene" data-start="39.6" data-duration="3.65">
+  <div class="md-world"><div class="md-rig" id="s12-rig" data-layout-allow-overflow>
+    <div class="spill md-glass" id="s12-pill">ANDAR KA KAAM</div>
+    <h1 class="md-line sh" id="s12-l1" data-in="words@39.66" data-out="blur@42.52">Tool line ko todta hai</h1>
+    <h2 class="md-line sh" id="s12-l2" data-in="words@39.84" data-out="blur@42.52"><span class='md-lit'>scenes</span> me, andar se</h2>
+    <div class="md-glass scard" id="s12-card"><div class='hero' id='s12-hero'>🧩</div><div class='big'>Line → <span class='g'>Scenes</span></div><div class='bigsub' id='s12-bigsub'>Tool andar se aise kaam karta hai</div><div class='rows'><div class='srow' id='s12-row0'><span class='ric'>✂️</span><span>Har scene · alag tukda</span></div></div></div>
+    
+  </div></div>
+</section>
+<section id="s13" class="clip md-scene" data-start="42.78" data-duration="3.87">
+  <div class="md-world"><div class="md-rig" id="s13-rig" data-layout-allow-overflow>
+    <div class="spill md-glass" id="s13-pill">AUTO SYNC</div>
+    <h1 class="md-line sh" id="s13-l1" data-in="words@42.84" data-out="blur@45.92">Har scene par <span class='md-lit'>awaaz</span></h1>
+    <h2 class="md-line sh" id="s13-l2" data-in="words@43.02" data-out="blur@45.92">aur <span class='md-lit'>tasveer</span> khud</h2>
+    <div class="md-glass scard" id="s13-card"><div class='hero' id='s13-hero'>🔊</div><div class='big'>Awaaz + <span class='g'>Tasveer</span></div><div class='bigsub' id='s13-bigsub'>Har scene par khud baith jati hai</div><div class='rows'><div class='srow' id='s13-row0'><span class='ric'>🖼</span><span>Visual bhi khud chunta hai</span></div></div></div>
+    
+  </div></div>
+</section>
+<section id="s14" class="clip md-scene" data-start="46.18" data-duration="4.25">
+  <div class="md-world"><div class="md-rig" id="s14-rig" data-layout-allow-overflow>
+    <div class="spill md-glass" id="s14-pill">IMANDAARI WALA SACH</div>
+    <h1 class="md-line sh" id="s14-l1" data-in="words@46.24" data-out="blur@49.70">Ek sach aur · <span class='md-lit'>free</span> plan me</h1>
+    <h2 class="md-line sh" id="s14-l2" data-in="words@46.42" data-out="blur@49.70"><span class='md-lit'>watermark</span> aata hai</h2>
+    <div class="md-glass scard" id="s14-card"><div class='hero' id='s14-hero'>💧</div><div class='big'>Ek sach <span class='g'>aur</span></div><div class='bigsub' id='s14-bigsub'>Free plan me chhota watermark aata hai</div><div class='reelmock'><span class='play'>▶</span><span class='wmband'>WATERMARK</span></div><div class='foot' id='s14-foot'>Try karna bilkul free hai · ye main chhupata nahi</div></div>
+    
+  </div></div>
+</section>
+<section id="s15" class="clip md-scene" data-start="49.96" data-duration="9.24">
+  <div class="md-world"><div class="md-rig" id="s15-rig" data-layout-allow-overflow>
+    <div class="spill md-glass" id="s15-pill">FAISLA · VIDEO LIKHO</div>
+    <h1 class="md-line sh" id="s15-l1" data-in="words@50.02" data-out="blur@58.92"><span class='md-lit'>PRO</span> ₹2,000 ya <span class='md-lit'>FREE</span> dimaag?</h1>
+    <h2 class="md-line sh" id="s15-l2" data-in="words@50.20" data-out="blur@58.92"><span class='md-lit'>VIDEO</span> likho, tool milega</h2>
+    <div class="md-glass scard" id="s15-card"><div class='disc' id='s15-disc'><img src='assets/mark.png' alt=''></div><div class='versus'><div class='vplate bad' id='s15-va'><div class='vname'>CLAUDE PRO</div><div class='vprice'>₹2,000<span>/mahina</span></div><div class='vmark no'>✗ Video NAHI</div></div><div class='vplate good' id='s15-vb'><div class='vname'>FREE TOOL</div><div class='vprice'>₹0</div><div class='vmark ok'>✓ Poori Reel</div></div></div><div class='cta' id='s15-cta'>Comment me <b>VIDEO</b> likho</div><div class='foot' id='s15-foot'>Comment me VIDEO likho · tool follow karke milega</div></div>
+    
+  </div></div>
+</section>
+  <div id="brandpill" class="md-glass">✳ I.RAJ1801</div>
+  <div id="charzone"><img class='pose' id='pose-determined' src='assets/poses/determined.png' alt='' style='opacity:0'><img class='pose' id='pose-explaining' src='assets/poses/explaining.png' alt='' style='opacity:0'><img class='pose' id='pose-laugh' src='assets/poses/laugh.png' alt='' style='opacity:0'><img class='pose' id='pose-neutral' src='assets/poses/neutral.png' alt='' style='opacity:0'><img class='pose' id='pose-pointing' src='assets/poses/pointing.png' alt='' style='opacity:0'><img class='pose' id='pose-surprised' src='assets/poses/surprised.png' alt='' style='opacity:0'><img class='pose' id='pose-talking' src='assets/poses/talking.png' alt='' style='opacity:1'><img class='pose' id='pose-thinking' src='assets/poses/thinking.png' alt='' style='opacity:0'><img class='pose' id='pose-thumbsup' src='assets/poses/thumbsup.png' alt='' style='opacity:0'><img class='pose' id='pose-wink' src='assets/poses/wink.png' alt='' style='opacity:0'></div>
+  <div id="bubblezone"><div class="bubble" id="bubble"></div></div>
+  <div class="sticker" id="sticker"></div>
+  <div class="md-vignette"></div>
+  <div class="md-grain"></div>
+</div>
+<script src="assets/md.js"></script>
+<script src="assets/theme.js"></script>
+<script>
+const tl = gsap.timeline({ paused: true });
+MD.lines(tl);
+
+// ---- silk replacement: drifting gradient pools (cheap, seek-safe) ----
+tl.fromTo('.p1', { x: 0, y: 0 }, { x: 130, y: 70, duration: 29.6, ease: 'sine.inOut', yoyo: true, repeat: 1 }, 0);
+tl.fromTo('.p2', { x: 0, y: 0 }, { x: -110, y: -60, duration: 24.7, ease: 'sine.inOut', yoyo: true, repeat: 1 }, 0);
+tl.fromTo('.p3', { x: 0, y: 0 }, { x: 80, y: -50, duration: 19.8, ease: 'sine.inOut', yoyo: true, repeat: 2 }, 0);
+tl.to('#bgpools', { opacity: 0.8, duration: 4.0, ease: 'sine.inOut' }, 30.0);
+tl.to('#bgpools', { opacity: 0.62, duration: 0.8, ease: 'sine.out' }, 35.28);
+tl.to('#bgpools', { opacity: 0.34, duration: 1.2, ease: 'sine.out' }, 49.98);
+
+// ---- scene 1 ----
+tl.fromTo('#s1-rig', {y:6}, {y:-10, duration:3.44, ease:'sine.inOut'}, 0.00);
+tl.fromTo('#s1-pill', {y:-26, opacity:0}, {y:0, opacity:1, duration:0.4, ease:'power3.out'}, 0.03);
+MD.sweep(tl, '#s1-pill', 0.50, 0.7);
+MD.fly(tl, '#s1-card', 0.12, {z:-1100, ry:-14, dur:0.7});
+MD.sweep(tl, '#s1-card', 0.78, 0.9);
+tl.fromTo('#s1-hero', {scale:0.3, opacity:0, rotation:-14}, {scale:1, opacity:1, rotation:0, duration:0.45, ease:'back.out(1.9)'}, 0.96);
+tl.fromTo('#s1-card .big', {scale:1.45, opacity:0}, {scale:1, opacity:1, duration:0.38, ease:'expo.out'}, 1.44);
+MD.stamp(tl, '#s1-card .big', 1.84, 0.05);
+tl.fromTo('#s1-row0', {y:34, opacity:0, scale:0.92}, {y:0, opacity:1, scale:1, duration:0.4, ease:'back.out(1.7)'}, 1.20);
+tl.fromTo('#s1-row1', {y:34, opacity:0, scale:0.92}, {y:0, opacity:1, scale:1, duration:0.4, ease:'back.out(1.7)'}, 1.79);
+tl.fromTo('#s1-row2', {y:34, opacity:0, scale:0.92}, {y:0, opacity:1, scale:1, duration:0.4, ease:'back.out(1.7)'}, 2.34);
+tl.fromTo('#s1-foot', {opacity:0}, {opacity:1, duration:0.4}, 2.59);
+tl.to('#s1-rig', {scale:2.2, opacity:0, filter:'blur(18px)', duration:0.42, ease:'power3.in'}, 3.42);// ---- scene 2 ----
+tl.fromTo('#s2-rig', {y:6}, {y:-10, duration:3.88, ease:'sine.inOut'}, 3.42);
+tl.fromTo('#s2-rig', {scale:1.05, filter:'blur(6px)'}, {scale:1, filter:'blur(0px)', duration:0.35, ease:'power2.out'}, 3.42);
+tl.fromTo('#s2-pill', {y:-26, opacity:0}, {y:0, opacity:1, duration:0.4, ease:'power3.out'}, 3.45);
+MD.sweep(tl, '#s2-pill', 3.92, 0.7);
+MD.fly(tl, '#s2-card', 3.54, {z:-1100, ry:-14, dur:0.7});
+MD.sweep(tl, '#s2-card', 4.20, 0.9);
+tl.fromTo('#s2-hero', {scale:0.3, opacity:0, rotation:-14}, {scale:1, opacity:1, rotation:0, duration:0.45, ease:'back.out(1.9)'}, 5.17);
+tl.fromTo('#s2-card .big', {scale:1.45, opacity:0}, {scale:1, opacity:1, duration:0.38, ease:'expo.out'}, 5.05);
+MD.stamp(tl, '#s2-card .big', 5.45, 0.05);
+tl.fromTo('#s2-bigsub', {y:22, opacity:0}, {y:0, opacity:1, duration:0.4, ease:'power2.out'}, 5.44);
+tl.fromTo('#s2-row0', {y:34, opacity:0, scale:0.92}, {y:0, opacity:1, scale:1, duration:0.4, ease:'back.out(1.7)'}, 6.14);
+tl.fromTo('#s2-foot', {opacity:0}, {opacity:1, duration:0.4}, 6.45);
+tl.to('#s2-rig', {scale:2.2, opacity:0, filter:'blur(18px)', duration:0.42, ease:'power3.in'}, 7.28);// ---- scene 3 ----
+tl.fromTo('#s3-rig', {y:6}, {y:-10, duration:2.74, ease:'sine.inOut'}, 7.28);
+tl.fromTo('#s3-rig', {scale:1.05, filter:'blur(6px)'}, {scale:1, filter:'blur(0px)', duration:0.35, ease:'power2.out'}, 7.28);
+tl.fromTo('#s3-pill', {y:-26, opacity:0}, {y:0, opacity:1, duration:0.4, ease:'power3.out'}, 7.31);
+MD.sweep(tl, '#s3-pill', 7.78, 0.7);
+MD.fly(tl, '#s3-card', 7.40, {z:-1100, ry:-14, dur:0.7});
+MD.sweep(tl, '#s3-card', 8.06, 0.9);
+tl.fromTo('#s3-hero', {scale:0.3, opacity:0, rotation:-14}, {scale:1, opacity:1, rotation:0, duration:0.45, ease:'back.out(1.9)'}, 8.05);
+tl.fromTo('#s3-card .big', {scale:1.45, opacity:0}, {scale:1, opacity:1, duration:0.38, ease:'expo.out'}, 8.43);
+MD.stamp(tl, '#s3-card .big', 8.83, 0.05);
+tl.fromTo('#s3-bigsub', {y:22, opacity:0}, {y:0, opacity:1, duration:0.4, ease:'power2.out'}, 8.70);
+tl.fromTo('#s3-row0', {y:34, opacity:0, scale:0.92}, {y:0, opacity:1, scale:1, duration:0.4, ease:'back.out(1.7)'}, 8.79);
+tl.to('#s3-rig', {scale:2.2, opacity:0, filter:'blur(18px)', duration:0.42, ease:'power3.in'}, 10.00);// ---- scene 4 ----
+tl.fromTo('#s4-rig', {y:6}, {y:-10, duration:2.18, ease:'sine.inOut'}, 10.00);
+tl.fromTo('#s4-rig', {scale:1.05, filter:'blur(6px)'}, {scale:1, filter:'blur(0px)', duration:0.35, ease:'power2.out'}, 10.00);
+tl.fromTo('#s4-pill', {y:-26, opacity:0}, {y:0, opacity:1, duration:0.4, ease:'power3.out'}, 10.03);
+MD.sweep(tl, '#s4-pill', 10.50, 0.7);
+MD.fly(tl, '#s4-card', 10.12, {z:-1100, ry:-14, dur:0.7});
+MD.sweep(tl, '#s4-card', 10.78, 0.9);
+tl.fromTo('#s4-hero', {scale:0.3, opacity:0, rotation:-14}, {scale:1, opacity:1, rotation:0, duration:0.45, ease:'back.out(1.9)'}, 10.61);
+tl.fromTo('#s4-card .big', {scale:1.45, opacity:0}, {scale:1, opacity:1, duration:0.38, ease:'expo.out'}, 10.92);
+MD.stamp(tl, '#s4-card .big', 11.32, 0.05);
+tl.fromTo('#s4-bigsub', {y:22, opacity:0}, {y:0, opacity:1, duration:0.4, ease:'power2.out'}, 11.13);
+tl.fromTo('#s4-row0', {y:34, opacity:0, scale:0.92}, {y:0, opacity:1, scale:1, duration:0.4, ease:'back.out(1.7)'}, 11.31);
+tl.to('#s4-rig', {x:-950, opacity:0, filter:'blur(20px)', duration:0.3, ease:'power3.in'}, 12.16);// ---- scene 5 ----
+tl.fromTo('#s5-rig', {y:6}, {y:-10, duration:2.92, ease:'sine.inOut'}, 12.16);
+tl.fromTo('#s5-rig', {scale:1.05, filter:'blur(6px)'}, {scale:1, filter:'blur(0px)', duration:0.35, ease:'power2.out'}, 12.16);
+tl.fromTo('#s5-pill', {y:-26, opacity:0}, {y:0, opacity:1, duration:0.4, ease:'power3.out'}, 12.19);
+MD.sweep(tl, '#s5-pill', 12.66, 0.7);
+MD.fly(tl, '#s5-card', 12.28, {z:-1100, ry:-14, dur:0.7});
+MD.sweep(tl, '#s5-card', 12.94, 0.9);
+tl.fromTo('#s5-hero', {scale:0.3, opacity:0, rotation:-14}, {scale:1, opacity:1, rotation:0, duration:0.45, ease:'back.out(1.9)'}, 12.98);
+tl.fromTo('#s5-card .big', {scale:1.45, opacity:0}, {scale:1, opacity:1, duration:0.38, ease:'expo.out'}, 13.39);
+MD.stamp(tl, '#s5-card .big', 13.79, 0.05);
+tl.fromTo('#s5-bigsub', {y:22, opacity:0}, {y:0, opacity:1, duration:0.4, ease:'power2.out'}, 13.68);
+tl.fromTo('#s5-cl0', {x:-30, opacity:0}, {x:0, opacity:1, duration:0.3}, 13.18);
+tl.fromTo('#s5-cl1', {x:-30, opacity:0}, {x:0, opacity:1, duration:0.3}, 13.34);
+tl.fromTo('#s5-cl2', {x:-30, opacity:0}, {x:0, opacity:1, duration:0.3}, 13.50);
+tl.fromTo('#s5-cl3', {x:-30, opacity:0}, {x:0, opacity:1, duration:0.3}, 13.66);
+tl.fromTo('#s5-chip', {scale:0.4, opacity:0}, {scale:1, opacity:1, duration:0.35, ease:'back.out(2)'}, 14.44);
+tl.to('#s5-rig', {scale:2.2, opacity:0, filter:'blur(18px)', duration:0.42, ease:'power3.in'}, 15.06);// ---- scene 6 ----
+tl.fromTo('#s6-rig', {y:6}, {y:-10, duration:4.23, ease:'sine.inOut'}, 15.13);
+tl.fromTo('#s6-rig', {scale:1.05, filter:'blur(6px)'}, {scale:1, filter:'blur(0px)', duration:0.35, ease:'power2.out'}, 15.13);
+tl.fromTo('#s6-pill', {y:-26, opacity:0}, {y:0, opacity:1, duration:0.4, ease:'power3.out'}, 15.16);
+MD.sweep(tl, '#s6-pill', 15.63, 0.7);
+MD.fly(tl, '#s6-card', 15.25, {z:-1100, ry:-14, dur:0.7});
+MD.sweep(tl, '#s6-card', 15.91, 0.9);
+tl.fromTo('#s6-hero', {scale:0.3, opacity:0, rotation:-14}, {scale:1, opacity:1, rotation:0, duration:0.45, ease:'back.out(1.9)'}, 16.31);
+tl.fromTo('#s6-card .big', {scale:1.45, opacity:0}, {scale:1, opacity:1, duration:0.38, ease:'expo.out'}, 16.91);
+MD.stamp(tl, '#s6-card .big', 17.31, 0.05);
+tl.fromTo('#s6-row0', {y:34, opacity:0, scale:0.92}, {y:0, opacity:1, scale:1, duration:0.4, ease:'back.out(1.7)'}, 18.51);
+tl.fromTo('#s6-fill', {scaleX:0}, {scaleX:0.72, duration:2.33, ease:'power1.inOut'}, 16.40);
+tl.to('#s6-fill', {scaleX:0.69, duration:0.07, yoyo:true, repeat:3}, 18.73);
+tl.fromTo('#s6-chip', {scale:0.4, opacity:0}, {scale:1, opacity:1, duration:0.35, ease:'back.out(2)'}, 18.85);
+tl.to('#s6-rig', {scale:2.2, opacity:0, filter:'blur(18px)', duration:0.42, ease:'power3.in'}, 19.34);// ---- scene 7 ----
+tl.fromTo('#s7-rig', {y:6}, {y:-10, duration:4.72, ease:'sine.inOut'}, 19.34);
+tl.fromTo('#s7-rig', {scale:1.05, filter:'blur(6px)'}, {scale:1, filter:'blur(0px)', duration:0.35, ease:'power2.out'}, 19.34);
+tl.fromTo('#s7-pill', {y:-26, opacity:0}, {y:0, opacity:1, duration:0.4, ease:'power3.out'}, 19.37);
+MD.sweep(tl, '#s7-pill', 19.84, 0.7);
+MD.fly(tl, '#s7-card', 19.46, {z:-1100, ry:-14, dur:0.7});
+MD.sweep(tl, '#s7-card', 20.12, 0.9);
+tl.fromTo('#s7-hero', {scale:0.3, opacity:0, rotation:-14}, {scale:1, opacity:1, rotation:0, duration:0.45, ease:'back.out(1.9)'}, 20.66);
+tl.fromTo('#s7-row0', {y:34, opacity:0, scale:0.92}, {y:0, opacity:1, scale:1, duration:0.4, ease:'back.out(1.7)'}, 23.12);
+tl.fromTo('#s7-foot', {opacity:0}, {opacity:1, duration:0.4}, 23.21);
+tl.to('#s7-rig', {scale:2.2, opacity:0, filter:'blur(18px)', duration:0.42, ease:'power3.in'}, 24.04);// ---- scene 8 ----
+tl.fromTo('#s8-rig', {y:6}, {y:-10, duration:2.79, ease:'sine.inOut'}, 24.11);
+tl.fromTo('#s8-rig', {scale:1.05, filter:'blur(6px)'}, {scale:1, filter:'blur(0px)', duration:0.35, ease:'power2.out'}, 24.11);
+tl.fromTo('#s8-pill', {y:-26, opacity:0}, {y:0, opacity:1, duration:0.4, ease:'power3.out'}, 24.14);
+MD.sweep(tl, '#s8-pill', 24.61, 0.7);
+MD.fly(tl, '#s8-card', 24.23, {z:-1100, ry:-14, dur:0.7});
+MD.sweep(tl, '#s8-card', 24.89, 0.9);
+tl.fromTo('#s8-hero', {scale:0.3, opacity:0, rotation:-14}, {scale:1, opacity:1, rotation:0, duration:0.45, ease:'back.out(1.9)'}, 24.89);
+tl.fromTo('#s8-card .big', {scale:1.45, opacity:0}, {scale:1, opacity:1, duration:0.38, ease:'expo.out'}, 25.28);
+MD.stamp(tl, '#s8-card .big', 25.68, 0.05);
+tl.fromTo('#s8-bigsub', {y:22, opacity:0}, {y:0, opacity:1, duration:0.4, ease:'power2.out'}, 25.56);
+tl.fromTo('#s8-row0', {y:34, opacity:0, scale:0.92}, {y:0, opacity:1, scale:1, duration:0.4, ease:'back.out(1.7)'}, 25.64);
+tl.to('#s8-rig', {scale:2.2, opacity:0, filter:'blur(18px)', duration:0.42, ease:'power3.in'}, 26.88);// ---- scene 9 ----
+tl.fromTo('#s9-rig', {y:6}, {y:-10, duration:2.84, ease:'sine.inOut'}, 26.88);
+tl.fromTo('#s9-rig', {scale:1.05, filter:'blur(6px)'}, {scale:1, filter:'blur(0px)', duration:0.35, ease:'power2.out'}, 26.88);
+tl.fromTo('#s9-pill', {y:-26, opacity:0}, {y:0, opacity:1, duration:0.4, ease:'power3.out'}, 26.91);
+MD.sweep(tl, '#s9-pill', 27.38, 0.7);
+MD.fly(tl, '#s9-card', 27.00, {z:-1100, ry:-14, dur:0.7});
+MD.sweep(tl, '#s9-card', 27.66, 0.9);
+tl.fromTo('#s9-card .big', {scale:1.45, opacity:0}, {scale:1, opacity:1, duration:0.38, ease:'expo.out'}, 28.07);
+MD.stamp(tl, '#s9-card .big', 28.47, 0.05);
+tl.fromTo('#s9-bigsub', {y:22, opacity:0}, {y:0, opacity:1, duration:0.4, ease:'power2.out'}, 28.36);
+tl.fromTo('#s9-row0', {y:34, opacity:0, scale:0.92}, {y:0, opacity:1, scale:1, duration:0.4, ease:'back.out(1.7)'}, 28.73);
+tl.fromTo('#s9-stamp', {scale:2.1, opacity:0, rotation:-18}, {scale:1, opacity:1, rotation:-12, duration:0.3, ease:'expo.out'}, 28.58);
+tl.to('#s9-rig', {x:-950, opacity:0, filter:'blur(20px)', duration:0.3, ease:'power3.in'}, 29.70);// ---- scene 10 ----
+tl.fromTo('#s10-rig', {y:6}, {y:-10, duration:5.51, ease:'sine.inOut'}, 29.77);
+tl.fromTo('#s10-rig', {scale:1.05, filter:'blur(6px)'}, {scale:1, filter:'blur(0px)', duration:0.35, ease:'power2.out'}, 29.77);
+tl.fromTo('#s10-pill', {y:-26, opacity:0}, {y:0, opacity:1, duration:0.4, ease:'power3.out'}, 29.80);
+MD.sweep(tl, '#s10-pill', 30.27, 0.7);
+MD.fly(tl, '#s10-card', 29.89, {z:-1100, ry:-14, dur:0.7});
+MD.sweep(tl, '#s10-card', 30.55, 0.9);
+tl.fromTo('#s10-hero', {scale:0.3, opacity:0, rotation:-14}, {scale:1, opacity:1, rotation:0, duration:0.45, ease:'back.out(1.9)'}, 31.31);
+tl.fromTo('#s10-card .big', {scale:1.45, opacity:0}, {scale:1, opacity:1, duration:0.38, ease:'expo.out'}, 32.08);
+MD.stamp(tl, '#s10-card .big', 32.48, 0.05);
+tl.fromTo('#s10-row0', {y:34, opacity:0, scale:0.92}, {y:0, opacity:1, scale:1, duration:0.4, ease:'back.out(1.7)'}, 34.07);
+tl.set('#s10-tc0', {opacity:1}, 31.42);
+tl.set('#s10-tc1', {opacity:1}, 31.48);
+tl.set('#s10-tc2', {opacity:1}, 31.53);
+tl.set('#s10-tc3', {opacity:1}, 31.59);
+tl.set('#s10-tc4', {opacity:1}, 31.64);
+tl.set('#s10-tc5', {opacity:1}, 31.70);
+tl.set('#s10-tc6', {opacity:1}, 31.75);
+tl.set('#s10-tc7', {opacity:1}, 31.81);
+tl.set('#s10-tc8', {opacity:1}, 31.86);
+tl.set('#s10-tc9', {opacity:1}, 31.92);
+tl.set('#s10-tc10', {opacity:1}, 31.97);
+tl.set('#s10-tc11', {opacity:1}, 32.03);
+tl.set('#s10-tc12', {opacity:1}, 32.08);
+tl.set('#s10-tc13', {opacity:1}, 32.14);
+tl.set('#s10-tc14', {opacity:1}, 32.19);
+tl.set('#s10-tc15', {opacity:1}, 32.25);
+tl.set('#s10-tc16', {opacity:1}, 32.30);
+tl.set('#s10-tc17', {opacity:1}, 32.36);
+tl.set('#s10-tc18', {opacity:1}, 32.41);
+tl.set('#s10-tc19', {opacity:1}, 32.47);
+tl.set('#s10-tc20', {opacity:1}, 32.52);
+tl.set('#s10-tc21', {opacity:1}, 32.58);
+tl.set('#s10-tc22', {opacity:1}, 32.63);
+tl.set('#s10-tc23', {opacity:1}, 32.69);
+tl.set('#s10-tc24', {opacity:1}, 32.74);
+tl.set('#s10-tc25', {opacity:1}, 32.80);
+tl.to('#s10-rig', {scale:2.2, opacity:0, filter:'blur(18px)', duration:0.42, ease:'power3.in'}, 35.26);// ---- scene 11 ----
+tl.fromTo('#s11-rig', {y:6}, {y:-10, duration:4.36, ease:'sine.inOut'}, 35.26);
+tl.fromTo('#s11-rig', {scale:1.05, filter:'blur(6px)'}, {scale:1, filter:'blur(0px)', duration:0.35, ease:'power2.out'}, 35.26);
+tl.fromTo('#s11-pill', {y:-26, opacity:0}, {y:0, opacity:1, duration:0.4, ease:'power3.out'}, 35.29);
+MD.sweep(tl, '#s11-pill', 35.76, 0.7);
+MD.fly(tl, '#s11-card', 35.38, {z:-1100, ry:-14, dur:0.7});
+MD.sweep(tl, '#s11-card', 36.04, 0.9);
+tl.fromTo('#s11-card .big', {scale:1.45, opacity:0}, {scale:1, opacity:1, duration:0.38, ease:'expo.out'}, 37.09);
+MD.stamp(tl, '#s11-card .big', 37.49, 0.05);
+tl.fromTo('#s11-foot', {opacity:0}, {opacity:1, duration:0.4}, 38.77);
+tl.fromTo('#s11-chip0', {scale:0.4, opacity:0}, {scale:1, opacity:1, duration:0.35, ease:'back.out(2)'}, 35.41);
+tl.fromTo('#s11-chip1', {scale:0.4, opacity:0}, {scale:1, opacity:1, duration:0.35, ease:'back.out(2)'}, 35.76);
+tl.fromTo('#s11-chip2', {scale:0.4, opacity:0}, {scale:1, opacity:1, duration:0.35, ease:'back.out(2)'}, 36.11);
+tl.fromTo('#s11-card', {scale:1}, {scale:1.014, duration:0.09, yoyo:true, repeat:1, ease:'power1.out'}, 35.86);
+tl.fromTo('#s11-card', {scale:1}, {scale:1.014, duration:0.09, yoyo:true, repeat:1, ease:'power1.out'}, 36.51);
+tl.fromTo('#s11-card', {scale:1}, {scale:1.014, duration:0.09, yoyo:true, repeat:1, ease:'power1.out'}, 37.16);
+tl.fromTo('#s11-card', {scale:1}, {scale:1.014, duration:0.09, yoyo:true, repeat:1, ease:'power1.out'}, 37.79);
+tl.fromTo('#s11-card', {scale:1}, {scale:1.014, duration:0.09, yoyo:true, repeat:1, ease:'power1.out'}, 38.44);
+tl.fromTo('#s11-card', {scale:1}, {scale:1.014, duration:0.09, yoyo:true, repeat:1, ease:'power1.out'}, 39.09);
+tl.to('#s11-rig', {scale:2.2, opacity:0, filter:'blur(18px)', duration:0.42, ease:'power3.in'}, 39.60);// ---- scene 12 ----
+tl.fromTo('#s12-rig', {y:6}, {y:-10, duration:3.20, ease:'sine.inOut'}, 39.60);
+tl.fromTo('#s12-rig', {scale:1.05, filter:'blur(6px)'}, {scale:1, filter:'blur(0px)', duration:0.35, ease:'power2.out'}, 39.60);
+tl.fromTo('#s12-pill', {y:-26, opacity:0}, {y:0, opacity:1, duration:0.4, ease:'power3.out'}, 39.63);
+MD.sweep(tl, '#s12-pill', 40.10, 0.7);
+MD.fly(tl, '#s12-card', 39.72, {z:-1100, ry:-14, dur:0.7});
+MD.sweep(tl, '#s12-card', 40.38, 0.9);
+tl.fromTo('#s12-hero', {scale:0.3, opacity:0, rotation:-14}, {scale:1, opacity:1, rotation:0, duration:0.45, ease:'back.out(1.9)'}, 40.50);
+tl.fromTo('#s12-card .big', {scale:1.45, opacity:0}, {scale:1, opacity:1, duration:0.38, ease:'expo.out'}, 40.94);
+MD.stamp(tl, '#s12-card .big', 41.34, 0.05);
+tl.fromTo('#s12-bigsub', {y:22, opacity:0}, {y:0, opacity:1, duration:0.4, ease:'power2.out'}, 41.26);
+tl.fromTo('#s12-row0', {y:34, opacity:0, scale:0.92}, {y:0, opacity:1, scale:1, duration:0.4, ease:'back.out(1.7)'}, 41.52);
+tl.to('#s12-rig', {scale:2.2, opacity:0, filter:'blur(18px)', duration:0.42, ease:'power3.in'}, 42.78);// ---- scene 13 ----
+tl.fromTo('#s13-rig', {y:6}, {y:-10, duration:3.42, ease:'sine.inOut'}, 42.78);
+tl.fromTo('#s13-rig', {scale:1.05, filter:'blur(6px)'}, {scale:1, filter:'blur(0px)', duration:0.35, ease:'power2.out'}, 42.78);
+tl.fromTo('#s13-pill', {y:-26, opacity:0}, {y:0, opacity:1, duration:0.4, ease:'power3.out'}, 42.81);
+MD.sweep(tl, '#s13-pill', 43.28, 0.7);
+MD.fly(tl, '#s13-card', 42.90, {z:-1100, ry:-14, dur:0.7});
+MD.sweep(tl, '#s13-card', 43.56, 0.9);
+tl.fromTo('#s13-hero', {scale:0.3, opacity:0, rotation:-14}, {scale:1, opacity:1, rotation:0, duration:0.45, ease:'back.out(1.9)'}, 43.74);
+tl.fromTo('#s13-card .big', {scale:1.45, opacity:0}, {scale:1, opacity:1, duration:0.38, ease:'expo.out'}, 44.22);
+MD.stamp(tl, '#s13-card .big', 44.62, 0.05);
+tl.fromTo('#s13-bigsub', {y:22, opacity:0}, {y:0, opacity:1, duration:0.4, ease:'power2.out'}, 44.56);
+tl.fromTo('#s13-row0', {y:34, opacity:0, scale:0.92}, {y:0, opacity:1, scale:1, duration:0.4, ease:'back.out(1.7)'}, 44.90);
+tl.to('#s13-rig', {scale:2.2, opacity:0, filter:'blur(18px)', duration:0.42, ease:'power3.in'}, 46.18);// ---- scene 14 ----
+tl.fromTo('#s14-rig', {y:6}, {y:-10, duration:3.80, ease:'sine.inOut'}, 46.18);
+tl.fromTo('#s14-rig', {scale:1.05, filter:'blur(6px)'}, {scale:1, filter:'blur(0px)', duration:0.35, ease:'power2.out'}, 46.18);
+tl.fromTo('#s14-pill', {y:-26, opacity:0}, {y:0, opacity:1, duration:0.4, ease:'power3.out'}, 46.21);
+MD.sweep(tl, '#s14-pill', 46.68, 0.7);
+MD.fly(tl, '#s14-card', 46.30, {z:-1100, ry:-14, dur:0.7});
+MD.sweep(tl, '#s14-card', 46.96, 0.9);
+tl.fromTo('#s14-hero', {scale:0.3, opacity:0, rotation:-14}, {scale:1, opacity:1, rotation:0, duration:0.45, ease:'back.out(1.9)'}, 47.24);
+tl.fromTo('#s14-card .big', {scale:1.45, opacity:0}, {scale:1, opacity:1, duration:0.38, ease:'expo.out'}, 47.78);
+MD.stamp(tl, '#s14-card .big', 48.18, 0.05);
+tl.fromTo('#s14-bigsub', {y:22, opacity:0}, {y:0, opacity:1, duration:0.4, ease:'power2.out'}, 48.16);
+tl.fromTo('#s14-foot', {opacity:0}, {opacity:1, duration:0.4}, 49.13);
+tl.to('#s14-rig', {scale:2.2, opacity:0, filter:'blur(18px)', duration:0.42, ease:'power3.in'}, 49.96);// ---- scene 15 ----
+tl.fromTo('#s15-rig', {y:6}, {y:-10, duration:9.24, ease:'sine.inOut'}, 49.96);
+tl.fromTo('#s15-rig', {scale:1.05, filter:'blur(6px)'}, {scale:1, filter:'blur(0px)', duration:0.35, ease:'power2.out'}, 49.96);
+tl.fromTo('#s15-pill', {y:-26, opacity:0}, {y:0, opacity:1, duration:0.4, ease:'power3.out'}, 49.99);
+MD.sweep(tl, '#s15-pill', 50.46, 0.7);
+MD.fly(tl, '#s15-card', 50.08, {z:-1100, ry:-14, dur:0.7});
+MD.sweep(tl, '#s15-card', 50.74, 0.9);
+tl.fromTo('#s15-foot', {opacity:0}, {opacity:1, duration:0.4}, 58.35);
+tl.fromTo('#s15-disc', {scale:1.8, opacity:0, filter:'blur(14px)'}, {scale:1, opacity:1, filter:'blur(0px)', duration:0.45, ease:'expo.out'}, 50.04);
+MD.stamp(tl, '#s15-disc', 50.51, 0.07);
+MD.sweep(tl, '#s15-disc', 50.36, 0.8);
+tl.fromTo('#s15-va', {y:-320, z:-500, rotationX:-30, opacity:0}, {y:0, z:0, rotationX:0, opacity:1, duration:0.55, ease:'expo.out'}, 50.21);
+tl.fromTo('#s15-vb', {y:-320, z:-500, rotationX:-30, opacity:0}, {y:0, z:0, rotationX:0, opacity:1, duration:0.55, ease:'expo.out'}, 50.51);
+MD.sweep(tl, '#s15-vb', 51.11, 0.8);
+tl.fromTo('#s15-cta', {scale:0.5, opacity:0}, {scale:1, opacity:1, duration:0.4, ease:'back.out(2)'}, 51.31);
+tl.fromTo('#s15-cta', {scale:1}, {scale:1.045, duration:0.1, yoyo:true, repeat:1, ease:'power1.out'}, 52.00);
+tl.fromTo('#s15-cta', {scale:1}, {scale:1.045, duration:0.1, yoyo:true, repeat:1, ease:'power1.out'}, 52.65);
+tl.fromTo('#s15-cta', {scale:1}, {scale:1.045, duration:0.1, yoyo:true, repeat:1, ease:'power1.out'}, 53.27);
+tl.fromTo('#s15-cta', {scale:1}, {scale:1.045, duration:0.1, yoyo:true, repeat:1, ease:'power1.out'}, 53.92);
+tl.fromTo('#s15-cta', {scale:1}, {scale:1.045, duration:0.1, yoyo:true, repeat:1, ease:'power1.out'}, 54.58);
+tl.fromTo('#s15-cta', {scale:1}, {scale:1.045, duration:0.1, yoyo:true, repeat:1, ease:'power1.out'}, 55.23);
+tl.fromTo('#s15-cta', {scale:1}, {scale:1.045, duration:0.1, yoyo:true, repeat:1, ease:'power1.out'}, 55.88);
+tl.fromTo('#s15-cta', {scale:1}, {scale:1.045, duration:0.1, yoyo:true, repeat:1, ease:'power1.out'}, 56.50);
+tl.fromTo('#s15-cta', {scale:1}, {scale:1.045, duration:0.1, yoyo:true, repeat:1, ease:'power1.out'}, 57.15);
+tl.fromTo('#s15-cta', {scale:1}, {scale:1.045, duration:0.1, yoyo:true, repeat:1, ease:'power1.out'}, 57.80);
+
+// ---- UI layer: character + karaoke bubble + sticker, pure function of t ----
+const UI = {"phrases": [{"s": 0.0, "words": [{"w": "Ek", "s": 0.0, "e": 0.52}, {"w": "line", "s": 0.52, "e": 0.78}, {"w": "likhi", "s": 0.78, "e": 1.08}]}, {"s": 1.44, "words": [{"w": "aur", "s": 1.44, "e": 1.74}, {"w": "poori", "s": 1.74, "e": 2.44}, {"w": "reel", "s": 2.44, "e": 2.72}]}, {"s": 2.72, "words": [{"w": "ban", "s": 2.72, "e": 2.88}, {"w": "gayi", "s": 2.88, "e": 3.04}]}, {"s": 3.54, "words": [{"w": "Main", "s": 3.54, "e": 4.1}, {"w": "Claude", "s": 4.14, "e": 4.54}, {"w": "Pro", "s": 4.54, "e": 4.74}]}, {"s": 4.74, "words": [{"w": "lene", "s": 4.74, "e": 4.96}, {"w": "wala", "s": 4.96, "e": 5.16}, {"w": "tha", "s": 5.16, "e": 5.3}]}, {"s": 5.78, "words": [{"w": "do", "s": 5.78, "e": 6.08}, {"w": "hazaar", "s": 6.08, "e": 6.34}, {"w": "rupaye", "s": 6.34, "e": 6.6}]}, {"s": 6.6, "words": [{"w": "mahina", "s": 6.6, "e": 6.96}]}, {"s": 7.4, "words": [{"w": "Socha", "s": 7.4, "e": 7.626}, {"w": "tha", "s": 7.626, "e": 7.852}, {"w": "paise", "s": 7.852, "e": 8.078}]}, {"s": 8.078, "words": [{"w": "dunga", "s": 8.078, "e": 8.304}, {"w": "to", "s": 8.304, "e": 8.53}, {"w": "video", "s": 8.53, "e": 8.756}]}, {"s": 8.756, "words": [{"w": "khud", "s": 8.756, "e": 8.982}, {"w": "hi", "s": 8.982, "e": 9.208}, {"w": "ban", "s": 9.208, "e": 9.434}]}, {"s": 9.434, "words": [{"w": "jayegi", "s": 9.434, "e": 9.66}]}, {"s": 10.12, "words": [{"w": "Par", "s": 10.12, "e": 10.345}, {"w": "ek", "s": 10.345, "e": 10.57}, {"w": "pehla", "s": 10.57, "e": 10.795}]}, {"s": 10.795, "words": [{"w": "sach", "s": 10.795, "e": 11.02}, {"w": "koi", "s": 11.02, "e": 11.245}, {"w": "batata", "s": 11.245, "e": 11.47}]}, {"s": 11.47, "words": [{"w": "hi", "s": 11.47, "e": 11.695}, {"w": "nahi", "s": 11.695, "e": 11.92}]}, {"s": 12.28, "words": [{"w": "Claude", "s": 12.28, "e": 12.72}, {"w": "video", "s": 12.72, "e": 13.08}, {"w": "nahi", "s": 13.08, "e": 13.2}]}, {"s": 13.2, "words": [{"w": "banata", "s": 13.2, "e": 13.36}, {"w": "wo", "s": 13.36, "e": 13.56}, {"w": "sirf", "s": 13.94, "e": 14.02}]}, {"s": 14.02, "words": [{"w": "code", "s": 14.02, "e": 14.34}, {"w": "hi", "s": 14.34, "e": 14.78}, {"w": "deta", "s": 14.78, "e": 15.1}]}, {"s": 15.1, "words": [{"w": "hai", "s": 15.1, "e": 15.18}]}, {"s": 15.18, "words": [{"w": "Us", "s": 15.18, "e": 15.525}, {"w": "code", "s": 15.525, "e": 15.871}, {"w": "ko", "s": 15.871, "e": 16.216}]}, {"s": 16.216, "words": [{"w": "chalana", "s": 16.216, "e": 16.562}, {"w": "aur", "s": 16.562, "e": 16.907}, {"w": "render", "s": 16.907, "e": 17.253}]}, {"s": 17.253, "words": [{"w": "karna", "s": 17.253, "e": 17.598}, {"w": "sab", "s": 17.598, "e": 17.944}, {"w": "tumhare", "s": 17.944, "e": 18.289}]}, {"s": 18.289, "words": [{"w": "sar", "s": 18.289, "e": 18.635}, {"w": "par", "s": 18.635, "e": 18.98}]}, {"s": 19.46, "words": [{"w": "Mera", "s": 19.46, "e": 19.773}, {"w": "dost", "s": 19.773, "e": 20.087}, {"w": "bola", "s": 20.087, "e": 20.4}]}, {"s": 20.4, "words": [{"w": "Pro", "s": 20.4, "e": 20.713}, {"w": "wale", "s": 20.713, "e": 21.027}, {"w": "bhaiya", "s": 21.027, "e": 21.34}]}, {"s": 21.34, "words": [{"w": "ab", "s": 21.34, "e": 21.653}, {"w": "editor", "s": 21.653, "e": 21.967}, {"w": "bhi", "s": 21.967, "e": 22.28}]}, {"s": 22.28, "words": [{"w": "ban", "s": 22.28, "e": 22.593}, {"w": "jao", "s": 22.593, "e": 22.907}, {"w": "Aur", "s": 22.907, "e": 23.22}]}, {"s": 23.22, "words": [{"w": "khub", "s": 23.22, "e": 23.533}, {"w": "has", "s": 23.533, "e": 23.847}, {"w": "pada", "s": 23.847, "e": 24.16}]}, {"s": 24.16, "words": [{"w": "Sach", "s": 24.16, "e": 24.369}, {"w": "ye", "s": 24.369, "e": 24.578}, {"w": "hai", "s": 24.578, "e": 24.787}]}, {"s": 24.787, "words": [{"w": "ki", "s": 24.787, "e": 24.996}, {"w": "aadhi", "s": 24.996, "e": 25.205}, {"w": "janta", "s": 25.205, "e": 25.415}]}, {"s": 25.415, "words": [{"w": "aise", "s": 25.415, "e": 25.624}, {"w": "hi", "s": 25.624, "e": 25.833}, {"w": "paise", "s": 25.833, "e": 26.042}]}, {"s": 26.042, "words": [{"w": "phansati", "s": 26.042, "e": 26.251}, {"w": "hai", "s": 26.251, "e": 26.46}]}, {"s": 27.0, "words": [{"w": "Phir", "s": 27.0, "e": 27.256}, {"w": "mujhe", "s": 27.256, "e": 27.513}, {"w": "ek", "s": 27.513, "e": 27.769}]}, {"s": 27.769, "words": [{"w": "free", "s": 27.769, "e": 28.025}, {"w": "tool", "s": 28.025, "e": 28.282}, {"w": "mila", "s": 28.282, "e": 28.538}]}, {"s": 28.538, "words": [{"w": "uska", "s": 28.538, "e": 28.795}, {"w": "naam", "s": 28.795, "e": 29.051}, {"w": "comment", "s": 29.051, "e": 29.307}]}, {"s": 29.307, "words": [{"w": "me", "s": 29.307, "e": 29.564}, {"w": "milega", "s": 29.564, "e": 29.82}]}, {"s": 29.82, "words": [{"w": "Hindi", "s": 29.82, "e": 30.186}, {"w": "me", "s": 30.186, "e": 30.551}, {"w": "ek", "s": 30.551, "e": 30.917}]}, {"s": 30.917, "words": [{"w": "line", "s": 30.917, "e": 31.283}, {"w": "likhi", "s": 31.283, "e": 31.649}, {"w": "meri", "s": 31.649, "e": 32.014}]}, {"s": 32.014, "words": [{"w": "agency", "s": 32.014, "e": 32.38}, {"w": "ki", "s": 32.38, "e": 32.746}, {"w": "reel", "s": 32.746, "e": 33.111}]}, {"s": 33.111, "words": [{"w": "bana", "s": 33.111, "e": 33.477}, {"w": "do", "s": 33.477, "e": 33.843}, {"w": "aur", "s": 33.843, "e": 34.209}]}, {"s": 34.209, "words": [{"w": "reel", "s": 34.209, "e": 34.574}, {"w": "taiyaar", "s": 34.574, "e": 34.94}]}, {"s": 35.38, "words": [{"w": "Script", "s": 35.38, "e": 35.754}, {"w": "awaaz", "s": 35.754, "e": 36.128}, {"w": "visuals", "s": 36.128, "e": 36.502}]}, {"s": 36.502, "words": [{"w": "teeno", "s": 36.502, "e": 36.876}, {"w": "bhi", "s": 36.876, "e": 37.25}, {"w": "usi", "s": 37.25, "e": 37.624}]}, {"s": 37.624, "words": [{"w": "ne", "s": 37.624, "e": 37.998}, {"w": "jode", "s": 37.998, "e": 38.372}, {"w": "zero", "s": 38.372, "e": 38.746}]}, {"s": 38.746, "words": [{"w": "rupaye", "s": 38.746, "e": 39.12}]}, {"s": 39.72, "words": [{"w": "Andar", "s": 39.72, "e": 39.929}, {"w": "asal", "s": 39.929, "e": 40.137}, {"w": "me", "s": 40.137, "e": 40.346}]}, {"s": 40.346, "words": [{"w": "ye", "s": 40.346, "e": 40.554}, {"w": "hota", "s": 40.554, "e": 40.763}, {"w": "hai", "s": 40.763, "e": 40.971}]}, {"s": 40.971, "words": [{"w": "tool", "s": 40.971, "e": 41.18}, {"w": "tumhari", "s": 41.18, "e": 41.389}, {"w": "line", "s": 41.389, "e": 41.597}]}, {"s": 41.597, "words": [{"w": "ko", "s": 41.597, "e": 41.806}, {"w": "scenes", "s": 41.806, "e": 42.014}, {"w": "me", "s": 42.014, "e": 42.223}]}, {"s": 42.223, "words": [{"w": "todta", "s": 42.223, "e": 42.431}, {"w": "hai", "s": 42.431, "e": 42.64}]}, {"s": 42.9, "words": [{"w": "Har", "s": 42.9, "e": 43.164}, {"w": "ek", "s": 43.164, "e": 43.427}, {"w": "scene", "s": 43.427, "e": 43.691}]}, {"s": 43.691, "words": [{"w": "par", "s": 43.691, "e": 43.955}, {"w": "awaaz", "s": 43.955, "e": 44.218}, {"w": "aur", "s": 44.218, "e": 44.482}]}, {"s": 44.482, "words": [{"w": "tasveer", "s": 44.482, "e": 44.745}, {"w": "khud", "s": 44.745, "e": 45.009}, {"w": "bitha", "s": 45.009, "e": 45.273}]}, {"s": 45.273, "words": [{"w": "deta", "s": 45.273, "e": 45.536}, {"w": "hai", "s": 45.536, "e": 45.8}]}, {"s": 46.3, "words": [{"w": "Ek", "s": 46.3, "e": 46.528}, {"w": "sach", "s": 46.528, "e": 46.756}, {"w": "aur", "s": 46.756, "e": 46.984}]}, {"s": 46.984, "words": [{"w": "free", "s": 46.984, "e": 47.212}, {"w": "plan", "s": 47.212, "e": 47.441}, {"w": "me", "s": 47.441, "e": 47.669}]}, {"s": 47.669, "words": [{"w": "chhota", "s": 47.669, "e": 47.897}, {"w": "sa", "s": 47.897, "e": 48.125}, {"w": "watermark", "s": 48.125, "e": 48.353}]}, {"s": 48.353, "words": [{"w": "aata", "s": 48.353, "e": 48.581}, {"w": "hai", "s": 48.581, "e": 48.809}, {"w": "try", "s": 48.809, "e": 49.038}]}, {"s": 49.038, "words": [{"w": "karna", "s": 49.038, "e": 49.266}, {"w": "bilkul", "s": 49.266, "e": 49.494}, {"w": "free", "s": 49.494, "e": 49.722}]}, {"s": 49.722, "words": [{"w": "hai", "s": 49.722, "e": 49.95}]}, {"s": 50.08, "words": [{"w": "Ab", "s": 50.08, "e": 50.491}, {"w": "tum", "s": 50.491, "e": 50.902}, {"w": "faisla", "s": 50.902, "e": 51.313}]}, {"s": 51.313, "words": [{"w": "karo", "s": 51.313, "e": 51.724}, {"w": "do", "s": 51.724, "e": 52.135}, {"w": "hazaar", "s": 52.135, "e": 52.546}]}, {"s": 52.546, "words": [{"w": "wala", "s": 52.546, "e": 52.957}, {"w": "Pro", "s": 52.957, "e": 53.368}, {"w": "ya", "s": 53.368, "e": 53.779}]}, {"s": 53.779, "words": [{"w": "free", "s": 53.779, "e": 54.19}, {"w": "wala", "s": 54.19, "e": 54.601}, {"w": "dimaag", "s": 54.601, "e": 55.012}]}, {"s": 55.012, "words": [{"w": "Comment", "s": 55.012, "e": 55.423}, {"w": "me", "s": 55.423, "e": 55.834}, {"w": "VIDEO", "s": 55.834, "e": 56.245}]}, {"s": 56.245, "words": [{"w": "likho", "s": 56.245, "e": 56.656}, {"w": "tool", "s": 56.656, "e": 57.067}, {"w": "follow", "s": 57.067, "e": 57.478}]}, {"s": 57.478, "words": [{"w": "karke", "s": 57.478, "e": 57.889}, {"w": "milega", "s": 57.889, "e": 58.3}]}], "expr": [[0.0, "talking"], [3.44, "thinking"], [7.3, "talking"], [10.02, "surprised"], [12.18, "explaining"], [15.08, "determined"], [19.36, "laugh"], [24.06, "talking"], [26.9, "pointing"], [29.72, "explaining"], [35.28, "thumbsup"], [39.62, "explaining"], [42.8, "talking"], [46.2, "neutral"], [49.98, "pointing"], [57.45, "wink"]], "stk": [[0.152, "✍️"], [5.421, "💳"], [14.165, "💻"], [16.7, "😮‍💨"], [23.455, "😂"], [28.551, "🔒"], [31.356, "⌨️"], [38.372, "🪙"], [48.125, "💧"], [51.313, "🎯"]]};
+const bubEl = document.getElementById('bubble');
+const stkEl = document.getElementById('sticker');
+const poseEls = {};
+document.querySelectorAll('.pose').forEach(im => poseEls[im.id.slice(5)] = im);
+let curPhrase = -1;
+function drawUI(t) {
+  // bubble: active phrase
+  let pi = -1;
+  for (let i = 0; i < UI.phrases.length; i++) {
+    const nx = i + 1 < UI.phrases.length ? UI.phrases[i + 1].s : 58.9;
+    if (t >= UI.phrases[i].s && t < nx) { pi = i; break; }
+  }
+  if (pi !== curPhrase) {
+    curPhrase = pi;
+    if (pi >= 0) bubEl.innerHTML = UI.phrases[pi].words.map(w => `<span class="bw">${w.w}</span>`).join('');
+  }
+  if (pi < 0) { bubEl.style.opacity = '0'; }
+  else {
+    const ph = UI.phrases[pi];
+    const pop = Math.min(1, (t - ph.s) / 0.14);
+    bubEl.style.opacity = '1';
+    bubEl.style.transform = `scale(${0.96 + 0.04 * pop})`;
+    const spans = bubEl.children;
+    for (let wi = 0; wi < ph.words.length; wi++) {
+      const w = ph.words[wi], sp = spans[wi];
+      if (!sp) break;
+      if (t >= w.e) { sp.style.color = '#0B3D2E'; sp.style.transform = 'scale(1)'; }
+      else if (t >= w.s) { sp.style.color = '#0E9F6E'; sp.style.transform = 'scale(1.14)'; }
+      else { sp.style.color = '#54655B'; sp.style.transform = 'scale(1)'; }
+    }
+  }
+  // sticker
+  let act = null;
+  for (const [st, glyph] of UI.stk) if (t >= st && t < st + 1.7) act = [st, glyph];
+  if (!act) { stkEl.style.opacity = '0'; }
+  else {
+    const [st, glyph] = act, u = t - st;
+    if (stkEl.textContent !== glyph) stkEl.textContent = glyph;
+    let sc, op;
+    if (u < 0.32) { const k = u / 0.32; sc = 0.3 + 0.7 * (1 + 2.1 * Math.pow(k - 1, 3) + 1.1 * Math.pow(k - 1, 2) * 1); sc = 0.3 + 0.7 * k * (2 - k) * 1.12; op = k; }
+    else if (u > 1.45) { const k = (u - 1.45) / 0.25; sc = 1 - 0.5 * k; op = 1 - k; }
+    else { sc = 1; op = 1; }
+    const fl = u > 0.35 && u <= 1.45 ? -9 * Math.sin(Math.min(1, (u - 0.35) / 0.55) * Math.PI / 2) : 0;
+    stkEl.style.opacity = String(Math.max(0, Math.min(1, op)));
+    stkEl.style.transform = `translateY(${fl}px) scale(${sc})`;
+  }
+  // poses: crossfade 0.22s on schedule
+  let cur = UI.expr[0], prev = null;
+  for (const e of UI.expr) { if (t >= e[0]) { prev = cur; cur = e; } }
+  for (const name in poseEls) poseEls[name].style.opacity = '0';
+  if (prev && prev !== cur && t - cur[0] < 0.22) {
+    const k = (t - cur[0]) / 0.22;
+    poseEls[cur[1]].style.opacity = String(k);
+    poseEls[prev[1]].style.opacity = String(1 - k);
+  } else {
+    poseEls[cur[1]].style.opacity = '1';
+  }
+}
+window.__drawUI = drawUI;
+drawUI(0);
+
+
+// ---- rapier-baked coins, 2D canvas (cheap, deterministic) ----
+const cobj = { t: 0 };
+let coinsDraw = null;
+try {
+  const cv = document.getElementById('coinsGL');
+  const ctx = cv.getContext('2d');
+  const spr = document.createElement('canvas'); spr.width = spr.height = 128;
+  const g = spr.getContext('2d');
+  const grad = g.createRadialGradient(64, 58, 8, 64, 64, 62);
+  grad.addColorStop(0, '#FFEFB0'); grad.addColorStop(0.55, '#FFC93C'); grad.addColorStop(1, '#D9930D');
+  g.fillStyle = grad; g.beginPath(); g.arc(64, 64, 60, 0, 7); g.fill();
+  g.lineWidth = 6; g.strokeStyle = '#A86E00'; g.stroke();
+  g.fillStyle = '#8A5A00'; g.font = '800 62px Poppins, sans-serif';
+  g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('₹', 64, 68);
+  const halo = document.createElement('canvas'); halo.width = halo.height = 128;
+  const hg = halo.getContext('2d');
+  const hgrad = hg.createRadialGradient(64, 64, 10, 64, 64, 64);
+  hgrad.addColorStop(0, 'rgba(255,201,60,0.55)'); hgrad.addColorStop(1, 'rgba(255,201,60,0)');
+  hg.fillStyle = hgrad; hg.fillRect(0, 0, 128, 128);
+  coinsDraw = (t) => {
+    ctx.clearRect(0, 0, 940, 660);
+    const F = window.COINS.frames, fi = Math.min(F.length - 2, Math.max(0, Math.floor(t * 60))), fr = Math.min(1, Math.max(0, t * 60 - fi));
+    for (let k = 0; k < window.COINS.count; k++) {
+      const a = F[fi].coins[k], b = F[fi + 1].coins[k];
+      const c = a && b ? [a[0] + (b[0] - a[0]) * fr, a[1] + (b[1] - a[1]) * fr, a[2] + (b[2] - a[2]) * fr] : (a || b);
+      if (!c) continue;
+      const x = 30 + (c[0] + 4.4) * 100, y = 40 + c[1] * 100;
+      ctx.save(); ctx.translate(x, y); ctx.rotate(-c[2]);
+      ctx.globalAlpha = 0.5; ctx.drawImage(halo, -66, -66, 132, 132);
+      ctx.globalAlpha = 1; ctx.drawImage(spr, -44, -44, 88, 88);
+      ctx.restore();
+    }
+  };
+} catch (e) { console.warn('coins off', e); }
+if (coinsDraw) {
+  tl.set('#coinsGL', { opacity: 1 }, 35.26);
+  tl.to('#coinsGL', { opacity: 0, duration: 0.4 }, 39.55);
+  window.__coinsDraw = (t) => { const lt = t - 35.26; if (lt >= 0 && lt <= 4.4) coinsDraw(lt); };
+}
+
+MD.finish(tl);
+window.__frame = (t) => { tl.pause(t); if (window.__drawUI) window.__drawUI(t); if (window.__coinsDraw) window.__coinsDraw(t); };
+tl.eventCallback('onUpdate', () => { const t = tl.time(); if (window.__drawUI) window.__drawUI(t); if (window.__coinsDraw) window.__coinsDraw(t); });
+window.__timelines = window.__timelines || {};
+window.__timelines["main"] = tl;
+</script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:540px;height:960px;overflow:hidden;background:#B9E7CB;
+ font-family:"Poppins","Noto Sans",sans-serif;color:#0B3D2E}
+#stage{position:relative;width:540px;height:960px;
+ background:
+  radial-gradient(500px 360px at 12% 8%, rgba(14,159,110,.34), rgba(14,159,110,0) 70%),
+  radial-gradient(580px 440px at 90% 86%, rgba(255,196,64,.38), rgba(255,196,64,0) 70%),
+  radial-gradient(700px 520px at 55% 45%, rgba(120,220,170,.35), rgba(120,220,170,0) 75%),
+  #B9E7CB}
+.scene{position:absolute;inset:0;opacity:0;z-index:1}
+#capzone{z-index:2}
+#brand{z-index:2}
+.pill{position:absolute;top:64px;left:50%;transform:translateX(-50%);white-space:nowrap;
+ font-size:12.5px;font-weight:800;letter-spacing:2.6px;color:#fff;
+ border-radius:999px;padding:8px 18px;background:#0B3D2E;box-shadow:4px 5px 0 rgba(11,61,46,.35)}
+.head{position:absolute;top:104px;left:0;width:540px;text-align:center;font-family:"Poppins",sans-serif}
+.head .l1{font-size:39px;font-weight:800;line-height:1.16;color:#0B3D2E}
+.head .l2{font-size:39px;font-weight:800;line-height:1.16;font-style:italic;color:#0E9F6E;position:relative;display:inline-block}
+.head .l2 .und{position:absolute;left:2%;bottom:-7px;width:96%;height:8px}
+.head .w{display:inline-block}
+.card{position:absolute;top:262px;left:50%;width:452px;height:392px;margin-left:-226px;
+ background:#fff;border:2.5px solid #0B3D2E;border-radius:30px;
+ box-shadow:10px 12px 0 rgba(11,61,46,.9);overflow:hidden;z-index:2}
+.card .inner{position:absolute;inset:0;padding:24px 28px;display:flex;flex-direction:column;align-items:center}
+.hero{font-size:96px;line-height:1.1;margin-top:16px;text-align:center}
+.bigtext{font-size:64px;font-weight:800;text-align:center;margin-top:26px;color:#0B3D2E;line-height:1.08}
+.bigtext .g{color:#0E9F6E}
+.bigsub{font-size:19px;font-weight:700;color:rgba(11,61,46,.62);text-align:center;margin-top:8px}
+.rows{margin-top:20px;display:flex;flex-direction:column;gap:11px;width:100%;align-items:center}
+.rrow{display:flex;align-items:center;gap:11px;background:#0B3D2E;color:#fff;font-size:18.5px;font-weight:700;
+ padding:9px 17px;border-radius:12px;opacity:0}
+.rrow.g{background:#0E9F6E}
+.rrow .ic{font-size:20px}
+.foot{position:absolute;bottom:20px;left:0;width:100%;text-align:center;font-size:15.5px;font-weight:700;color:rgba(11,61,46,.6);opacity:0;padding:0 26px}
+.barwrap{width:88%;margin-top:26px}
+.bar2{height:17px;border-radius:9px;background:rgba(11,61,46,.12);overflow:hidden}
+.bar2 i{display:block;height:100%;width:0;background:linear-gradient(90deg,#37C978,#0E9F6E)}
+.errchip{margin-top:16px;background:#C0392B;color:#fff;font-weight:800;font-size:16.5px;padding:8px 16px;border-radius:11px;opacity:0}
+.codelines{margin-top:20px;font-family:"DejaVu Sans Mono",monospace;font-size:16.5px;line-height:1.75;color:rgba(11,61,46,.75);text-align:left;width:88%}
+.cross{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:150px;opacity:0}
+.quote{font-size:27px;font-weight:800;font-style:italic;text-align:center;line-height:1.4;margin-top:44px;color:#0B3D2E;padding:0 8px}
+.lockic{font-size:88px;margin-top:30px}
+.typeline{margin-top:56px;font-size:23px;font-weight:800;text-align:center;line-height:1.45;min-height:70px;color:#0B3D2E;padding:0 10px}
+.typeline .caret{color:#0E9F6E}
+.vs{display:flex;gap:14px;width:100%;margin-top:30px}
+.vsA,.vsB{flex:1;border-radius:16px;padding:20px 10px;text-align:center;opacity:0}
+.vsA{background:rgba(192,57,43,.1);border:2px solid rgba(192,57,43,.45)}
+.vsB{background:rgba(14,159,110,.12);border:2px solid #0E9F6E}
+.vs .vt{font-size:15px;font-weight:800;letter-spacing:1.6px}
+.vs .vp{font-size:37px;font-weight:800;margin-top:7px}
+.vsA .vp{color:#C0392B}.vsB .vp{color:#0E9F6E}
+.wmbox{margin-top:14px;border:2px dashed rgba(11,61,46,.35);border-radius:12px;padding:12px 20px;position:relative;overflow:hidden}
+.wmbox .wmt{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:25px;font-weight:800;color:rgba(11,61,46,.16);transform:rotate(-14deg);letter-spacing:3px}
+.wmbox .wmi{font-size:34px;text-align:center;position:relative}
+#capzone{position:absolute;left:0;bottom:100px;width:540px;display:flex;justify-content:flex-start;align-items:flex-end;gap:6px;padding:0 18px}
+#charwrap{width:172px;height:184px;flex:none;position:relative}
+#charwrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:bottom center;filter:drop-shadow(0 10px 14px rgba(11,61,46,.28))}
+#bubble{background:#fff;border:2px solid #0B3D2E;border-radius:18px;box-shadow:6px 7px 0 rgba(11,61,46,.9);
+ padding:13px 17px;font-family:"Poppins",sans-serif;font-size:19.5px;font-weight:700;line-height:1.35;max-width:330px;min-height:56px;color:#0B3D2E}
+#bubble .cw{display:inline-block}
+#bubble .hot{color:#0E9F6E;font-style:italic}
+#brand{position:absolute;bottom:60px;left:0;width:540px;text-align:center;font-size:12px;font-weight:700;letter-spacing:2.2px;color:rgba(11,61,46,.55)}
+.ambient{position:absolute;inset:0;overflow:hidden;z-index:1}
+.sketch{position:absolute;inset:0;z-index:1;pointer-events:none}
+.amb{position:absolute;color:#0E9F6E;font-weight:700;opacity:.13;line-height:1}
+.dots{position:absolute;inset:0;z-index:0;background-image:radial-gradient(circle, rgba(11,61,46,.14) 1.6px, transparent 1.9px);background-size:26px 26px}
+#sticker{position:absolute;left:452px;top:50px;width:58px;height:58px;background:#fff;border:2.5px solid #0B3D2E;border-radius:50%;box-shadow:4px 5px 0 rgba(11,61,46,.9);display:flex;align-items:center;justify-content:center;font-size:30px;opacity:0;z-index:5}
+</style></head><body>
+<div id="stage"></div>
+<script>
+const DATA = {"lines": [{"start": 0.0, "dur": 3.04, "words": [{"w": "Ek", "s": 0.0, "e": 0.52}, {"w": "line", "s": 0.52, "e": 0.78}, {"w": "likhi", "s": 0.78, "e": 1.08}, {"w": "aur", "s": 1.44, "e": 1.74}, {"w": "poori", "s": 1.74, "e": 2.44}, {"w": "reel", "s": 2.44, "e": 2.72}, {"w": "ban", "s": 2.72, "e": 2.88}, {"w": "gayi", "s": 2.88, "e": 3.04}]}, {"start": 3.54, "dur": 3.42, "words": [{"w": "Main", "s": 3.54, "e": 4.1}, {"w": "Claude", "s": 4.14, "e": 4.54}, {"w": "Pro", "s": 4.54, "e": 4.74}, {"w": "lene", "s": 4.74, "e": 4.96}, {"w": "wala", "s": 4.96, "e": 5.16}, {"w": "tha", "s": 5.16, "e": 5.3}, {"w": "do", "s": 5.78, "e": 6.08}, {"w": "hazaar", "s": 6.08, "e": 6.34}, {"w": "rupaye", "s": 6.34, "e": 6.6}, {"w": "mahina", "s": 6.6, "e": 6.96}]}, {"start": 7.4, "dur": 2.26, "words": [{"w": "Socha", "s": 7.4, "e": 7.626}, {"w": "tha", "s": 7.626, "e": 7.852}, {"w": "paise", "s": 7.852, "e": 8.078}, {"w": "dunga", "s": 8.078, "e": 8.304}, {"w": "to", "s": 8.304, "e": 8.53}, {"w": "video", "s": 8.53, "e": 8.756}, {"w": "khud", "s": 8.756, "e": 8.982}, {"w": "hi", "s": 8.982, "e": 9.208}, {"w": "ban", "s": 9.208, "e": 9.434}, {"w": "jayegi", "s": 9.434, "e": 9.66}]}, {"start": 10.12, "dur": 1.8, "words": [{"w": "Par", "s": 10.12, "e": 10.345}, {"w": "ek", "s": 10.345, "e": 10.57}, {"w": "pehla", "s": 10.57, "e": 10.795}, {"w": "sach", "s": 10.795, "e": 11.02}, {"w": "koi", "s": 11.02, "e": 11.245}, {"w": "batata", "s": 11.245, "e": 11.47}, {"w": "hi", "s": 11.47, "e": 11.695}, {"w": "nahi", "s": 11.695, "e": 11.92}]}, {"start": 12.28, "dur": 2.9, "words": [{"w": "Claude", "s": 12.28, "e": 12.72}, {"w": "video", "s": 12.72, "e": 13.08}, {"w": "nahi", "s": 13.08, "e": 13.2}, {"w": "banata", "s": 13.2, "e": 13.36}, {"w": "wo", "s": 13.36, "e": 13.56}, {"w": "sirf", "s": 13.94, "e": 14.02}, {"w": "code", "s": 14.02, "e": 14.34}, {"w": "hi", "s": 14.34, "e": 14.78}, {"w": "deta", "s": 14.78, "e": 15.1}, {"w": "hai", "s": 15.1, "e": 15.18}]}, {"start": 15.18, "dur": 3.8, "words": [{"w": "Us", "s": 15.18, "e": 15.525}, {"w": "code", "s": 15.525, "e": 15.871}, {"w": "ko", "s": 15.871, "e": 16.216}, {"w": "chalana", "s": 16.216, "e": 16.562}, {"w": "aur", "s": 16.562, "e": 16.907}, {"w": "render", "s": 16.907, "e": 17.253}, {"w": "karna", "s": 17.253, "e": 17.598}, {"w": "sab", "s": 17.598, "e": 17.944}, {"w": "tumhare", "s": 17.944, "e": 18.289}, {"w": "sar", "s": 18.289, "e": 18.635}, {"w": "par", "s": 18.635, "e": 18.98}]}, {"start": 19.46, "dur": 4.7, "words": [{"w": "Mera", "s": 19.46, "e": 19.773}, {"w": "dost", "s": 19.773, "e": 20.087}, {"w": "bola", "s": 20.087, "e": 20.4}, {"w": "Pro", "s": 20.4, "e": 20.713}, {"w": "wale", "s": 20.713, "e": 21.027}, {"w": "bhaiya", "s": 21.027, "e": 21.34}, {"w": "ab", "s": 21.34, "e": 21.653}, {"w": "editor", "s": 21.653, "e": 21.967}, {"w": "bhi", "s": 21.967, "e": 22.28}, {"w": "ban", "s": 22.28, "e": 22.593}, {"w": "jao", "s": 22.593, "e": 22.907}, {"w": "Aur", "s": 22.907, "e": 23.22}, {"w": "khub", "s": 23.22, "e": 23.533}, {"w": "has", "s": 23.533, "e": 23.847}, {"w": "pada", "s": 23.847, "e": 24.16}]}, {"start": 24.16, "dur": 2.3, "words": [{"w": "Sach", "s": 24.16, "e": 24.369}, {"w": "ye", "s": 24.369, "e": 24.578}, {"w": "hai", "s": 24.578, "e": 24.787}, {"w": "ki", "s": 24.787, "e": 24.996}, {"w": "aadhi", "s": 24.996, "e": 25.205}, {"w": "janta", "s": 25.205, "e": 25.415}, {"w": "aise", "s": 25.415, "e": 25.624}, {"w": "hi", "s": 25.624, "e": 25.833}, {"w": "paise", "s": 25.833, "e": 26.042}, {"w": "phansati", "s": 26.042, "e": 26.251}, {"w": "hai", "s": 26.251, "e": 26.46}]}, {"start": 27.0, "dur": 2.82, "words": [{"w": "Phir", "s": 27.0, "e": 27.256}, {"w": "mujhe", "s": 27.256, "e": 27.513}, {"w": "ek", "s": 27.513, "e": 27.769}, {"w": "free", "s": 27.769, "e": 28.025}, {"w": "tool", "s": 28.025, "e": 28.282}, {"w": "mila", "s": 28.282, "e": 28.538}, {"w": "uska", "s": 28.538, "e": 28.795}, {"w": "naam", "s": 28.795, "e": 29.051}, {"w": "comment", "s": 29.051, "e": 29.307}, {"w": "me", "s": 29.307, "e": 29.564}, {"w": "milega", "s": 29.564, "e": 29.82}]}, {"start": 29.82, "dur": 5.12, "words": [{"w": "Hindi", "s": 29.82, "e": 30.186}, {"w": "me", "s": 30.186, "e": 30.551}, {"w": "ek", "s": 30.551, "e": 30.917}, {"w": "line", "s": 30.917, "e": 31.283}, {"w": "likhi", "s": 31.283, "e": 31.649}, {"w": "meri", "s": 31.649, "e": 32.014}, {"w": "agency", "s": 32.014, "e": 32.38}, {"w": "ki", "s": 32.38, "e": 32.746}, {"w": "reel", "s": 32.746, "e": 33.111}, {"w": "bana", "s": 33.111, "e": 33.477}, {"w": "do", "s": 33.477, "e": 33.843}, {"w": "aur", "s": 33.843, "e": 34.209}, {"w": "reel", "s": 34.209, "e": 34.574}, {"w": "taiyaar", "s": 34.574, "e": 34.94}]}, {"start": 35.38, "dur": 3.74, "words": [{"w": "Script", "s": 35.38, "e": 35.754}, {"w": "awaaz", "s": 35.754, "e": 36.128}, {"w": "visuals", "s": 36.128, "e": 36.502}, {"w": "teeno", "s": 36.502, "e": 36.876}, {"w": "bhi", "s": 36.876, "e": 37.25}, {"w": "usi", "s": 37.25, "e": 37.624}, {"w": "ne", "s": 37.624, "e": 37.998}, {"w": "jode", "s": 37.998, "e": 38.372}, {"w": "zero", "s": 38.372, "e": 38.746}, {"w": "rupaye", "s": 38.746, "e": 39.12}]}, {"start": 39.72, "dur": 2.92, "words": [{"w": "Andar", "s": 39.72, "e": 39.929}, {"w": "asal", "s": 39.929, "e": 40.137}, {"w": "me", "s": 40.137, "e": 40.346}, {"w": "ye", "s": 40.346, "e": 40.554}, {"w": "hota", "s": 40.554, "e": 40.763}, {"w": "hai", "s": 40.763, "e": 40.971}, {"w": "tool", "s": 40.971, "e": 41.18}, {"w": "tumhari", "s": 41.18, "e": 41.389}, {"w": "line", "s": 41.389, "e": 41.597}, {"w": "ko", "s": 41.597, "e": 41.806}, {"w": "scenes", "s": 41.806, "e": 42.014}, {"w": "me", "s": 42.014, "e": 42.223}, {"w": "todta", "s": 42.223, "e": 42.431}, {"w": "hai", "s": 42.431, "e": 42.64}]}, {"start": 42.9, "dur": 2.9, "words": [{"w": "Har", "s": 42.9, "e": 43.164}, {"w": "ek", "s": 43.164, "e": 43.427}, {"w": "scene", "s": 43.427, "e": 43.691}, {"w": "par", "s": 43.691, "e": 43.955}, {"w": "awaaz", "s": 43.955, "e": 44.218}, {"w": "aur", "s": 44.218, "e": 44.482}, {"w": "tasveer", "s": 44.482, "e": 44.745}, {"w": "khud", "s": 44.745, "e": 45.009}, {"w": "bitha", "s": 45.009, "e": 45.273}, {"w": "deta", "s": 45.273, "e": 45.536}, {"w": "hai", "s": 45.536, "e": 45.8}]}, {"start": 46.3, "dur": 3.65, "words": [{"w": "Ek", "s": 46.3, "e": 46.528}, {"w": "sach", "s": 46.528, "e": 46.756}, {"w": "aur", "s": 46.756, "e": 46.984}, {"w": "free", "s": 46.984, "e": 47.212}, {"w": "plan", "s": 47.212, "e": 47.441}, {"w": "me", "s": 47.441, "e": 47.669}, {"w": "chhota", "s": 47.669, "e": 47.897}, {"w": "sa", "s": 47.897, "e": 48.125}, {"w": "watermark", "s": 48.125, "e": 48.353}, {"w": "aata", "s": 48.353, "e": 48.581}, {"w": "hai", "s": 48.581, "e": 48.809}, {"w": "try", "s": 48.809, "e": 49.038}, {"w": "karna", "s": 49.038, "e": 49.266}, {"w": "bilkul", "s": 49.266, "e": 49.494}, {"w": "free", "s": 49.494, "e": 49.722}, {"w": "hai", "s": 49.722, "e": 49.95}]}, {"start": 50.08, "dur": 8.22, "words": [{"w": "Ab", "s": 50.08, "e": 50.491}, {"w": "tum", "s": 50.491, "e": 50.902}, {"w": "faisla", "s": 50.902, "e": 51.313}, {"w": "karo", "s": 51.313, "e": 51.724}, {"w": "do", "s": 51.724, "e": 52.135}, {"w": "hazaar", "s": 52.135, "e": 52.546}, {"w": "wala", "s": 52.546, "e": 52.957}, {"w": "Pro", "s": 52.957, "e": 53.368}, {"w": "ya", "s": 53.368, "e": 53.779}, {"w": "free", "s": 53.779, "e": 54.19}, {"w": "wala", "s": 54.19, "e": 54.601}, {"w": "dimaag", "s": 54.601, "e": 55.012}, {"w": "Comment", "s": 55.012, "e": 55.423}, {"w": "me", "s": 55.423, "e": 55.834}, {"w": "VIDEO", "s": 55.834, "e": 56.245}, {"w": "likho", "s": 56.245, "e": 56.656}, {"w": "tool", "s": 56.656, "e": 57.067}, {"w": "follow", "s": 57.067, "e": 57.478}, {"w": "karke", "s": 57.478, "e": 57.889}, {"w": "milega", "s": 57.889, "e": 58.3}]}], "total": 59.2, "expr": [[0.0, "talking"], [3.44, "thinking"], [7.3, "talking"], [10.02, "surprised"], [12.18, "explaining"], [15.08, "determined"], [19.36, "laugh"], [24.06, "talking"], [26.9, "pointing"], [29.72, "explaining"], [35.28, "thumbsup"], [39.62, "explaining"], [42.8, "talking"], [46.2, "neutral"], [49.98, "pointing"], [57.45, "wink"]], "stk": [[0.152, "✍️"], [5.421, "💳"], [14.165, "💻"], [16.7, "😮‍💨"], [23.455, "😂"], [28.551, "🔒"], [31.356, "⌨️"], [38.372, "🪙"], [48.125, "💧"], [51.313, "🎯"]]};
+const SCENES = [{"pill": "HOOK · EK LINE = EK REEL", "l1": "Ek line likhi…", "l2": "poori reel ban gayi!", "kw": ["line", "reel"], "card": {"hero": "✍️", "big": "Ek line = <span class='g'>Poori Reel</span>", "rows": [["🎬", "Script khud"], ["🎙", "Awaaz khud"], ["✂️", "Edit khud"]], "rowAt": [0.35, 0.52, 0.68], "foot": "Kaise? Aage dekho…"}, "t0": 0.0, "t1": 3.44}, {"pill": "STAKES · PAISA", "l1": "Claude PRO lene wala tha", "l2": "₹2,000 mahina!", "kw": ["Claude", "Pro", "hazaar"], "card": {"hero": "💳", "heroAt": 0.45, "big": "₹2,000<span class='g'>/mahina</span>", "bigsub": "Claude Pro — lene hi wala tha", "rows": [["📅", "Har mahine katega"]], "rowAt": [0.7], "foot": "Paise dene se pehle ye sun lo"}, "t0": 3.42, "t1": 7.3}, {"pill": "UMEED", "l1": "Paise dunga to", "l2": "video khud banegi?", "kw": ["video"], "card": {"hero": "🤞", "big": "Video <span class='g'>khud</span> banegi?", "bigsub": "Meri umeed bilkul yahi thi", "rows": [["🎞", "Editor ka jhanjhat khatm"]], "rowAt": [0.55]}, "t0": 7.28, "t1": 10.02}, {"pill": "SACH #1", "l1": "Par pehla SACH", "l2": "koi batata hi nahi", "kw": ["sach"], "card": {"hero": "⚠️", "big": "SACH <span class='g'>#1</span>", "bigsub": "Jo koi khul ke batata hi nahi", "rows": [["🙊", "Tumhe pata tha?"]], "rowAt": [0.6]}, "t0": 10.0, "t1": 12.18}, {"pill": "SACH · CODE ≠ VIDEO", "l1": "Claude video NAHI banata", "l2": "sirf CODE deta hai", "kw": ["video", "code"], "card": {"kind": "code", "hero": "💻", "big": "CODE milega", "bigsub": "Video file NAHI", "rows": []}, "t0": 12.16, "t1": 15.08}, {"pill": "ASLI MEHNAT", "l1": "Code chalana, render karna", "l2": "sab TUMHARE sar par", "kw": ["render", "tumhare"], "card": {"kind": "bar", "hero": "⏳", "big": "Render <span class='g'>tumhare</span> sar par", "rows": [["🧑‍💻", "Editor bhi tum hi"]], "rowAt": [0.8]}, "t0": 15.13, "t1": 19.36}, {"pill": "DOST KI HANSI", "l1": "Dost bola — Pro wale bhaiya", "l2": "ab EDITOR bhi ban jao!", "kw": ["editor", "has"], "card": {"kind": "quote", "hero": "😂", "rows": [["🗣", "Dost ki salah — bilkul free"]], "rowAt": [0.8], "foot": "Hansi me chhupa sach"}, "t0": 19.34, "t1": 24.06}, {"pill": "HAQIQAT", "l1": "Aadhi janta aise hi", "l2": "paise phansati hai", "kw": ["paise"], "card": {"hero": "💸", "big": "Aadhi <span class='g'>janta</span>", "bigsub": "aise hi paise phansa leti hai", "rows": [["🕳", "Pro liya — video phir bhi nahi"]], "rowAt": [0.55]}, "t0": 24.11, "t1": 26.9}, {"pill": "FREE TOOL", "l1": "Phir mila ek FREE tool", "l2": "naam comment me milega", "kw": ["free", "tool", "naam"], "card": {"kind": "lock", "big": "FREE <span class='g'>TOOL</span>", "bigsub": "Naam comment me milega", "rows": [["🔑", "Follow karke khulta hai"]], "rowAt": [0.65]}, "t0": 26.88, "t1": 29.72}, {"pill": "EK LINE · HINDI ME", "l1": "Hindi me ek line likhi", "l2": "reel taiyaar!", "kw": ["Hindi", "line", "taiyaar"], "card": {"kind": "typing", "hero": "⌨️", "big": "Hindi me <span class='g'>ek line</span>", "rows": [["🎬", "Aur reel taiyaar ho gayi"]], "rowAt": [0.78]}, "t0": 29.77, "t1": 35.28}, {"pill": "PAYOFF · ₹0", "l1": "Script · Awaaz · Visuals", "l2": "teeno usi ne jode — ₹0", "kw": ["Script", "awaaz", "visuals", "zero"], "card": {"hero": "🪙", "big": "₹0 <span class='g'>— Zero rupaye</span>", "rows": [["✓", "Script"], ["✓", "Awaaz"], ["✓", "Visuals"]], "rowAt": [0.08, 0.26, 0.44], "foot": "Teeno usi tool ne jode"}, "t0": 35.26, "t1": 39.62}, {"pill": "ANDAR KA KAAM", "l1": "Tool line ko todta hai", "l2": "scenes me, andar se", "kw": ["scenes"], "card": {"hero": "🧩", "big": "Line → <span class='g'>Scenes</span>", "bigsub": "Tool andar se aise kaam karta hai", "rows": [["✂️", "Har scene — alag tukda"]], "rowAt": [0.6]}, "t0": 39.6, "t1": 42.8}, {"pill": "AUTO SYNC", "l1": "Har scene par awaaz", "l2": "aur tasveer khud", "kw": ["awaaz", "tasveer"], "card": {"hero": "🔊", "big": "Awaaz + <span class='g'>Tasveer</span>", "bigsub": "Har scene par khud baith jati hai", "rows": [["🖼", "Visual bhi khud chunta hai"]], "rowAt": [0.62]}, "t0": 42.78, "t1": 46.2}, {"pill": "IMANDAARI WALA SACH", "l1": "Ek sach aur — free plan me", "l2": "watermark aata hai", "kw": ["watermark", "free"], "card": {"kind": "wm", "hero": "💧", "big": "Ek sach <span class='g'>aur</span>", "bigsub": "Free plan me chhota watermark aata hai", "rows": [], "foot": "Try karna bilkul free hai — ye main chhupata nahi"}, "t0": 46.18, "t1": 49.98}, {"pill": "FAISLA · VIDEO LIKHO", "l1": "PRO ₹2,000 ya FREE dimaag?", "l2": "VIDEO likho, tool milega", "kw": ["Pro", "free", "VIDEO"], "card": {"kind": "versus", "foot": "Comment me VIDEO likho — tool follow karke milega"}, "t0": 49.96, "t1": 59.2}];
+const $=s=>document.querySelector(s);
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const lerp=(a,b,k)=>a+(b-a)*k;
+const eoc=x=>1-Math.pow(1-x,3);
+const eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const eob=x=>{const c=1.70158,c3=c+1;return 1+c3*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const stage=$('#stage');
+SCENES.forEach((S,i)=>{
+ S.idx=i;
+ const d=document.createElement('div');d.className='scene';d.id='sc'+i;
+ let card='';
+ const C=S.card||{};
+ if(C.kind==='versus'){ card=`<div class="vs"><div class="vsA"><div class="vt">CLAUDE PRO</div><div class="vp">₹2,000</div><div class="bigsub" style="font-size:15px">har mahina</div></div><div class="vsB"><div class="vt">FREE TOOL</div><div class="vp">₹0</div><div class="bigsub" style="font-size:15px">try bilkul free</div></div></div>` }
+ else{
+  if(C.hero)card+=`<div class="hero">${C.hero}</div>`;
+  if(C.big)card+=`<div class="bigtext">${C.big}</div>`;
+  if(C.bigsub)card+=`<div class="bigsub">${C.bigsub}</div>`;
+  if(C.kind==='code')card+=`<div class="codelines">&gt; npm run render<br>&nbsp;&nbsp;scene_01 … compiling<br>&nbsp;&nbsp;scene_02 … compiling<br>&nbsp;&nbsp;error: limit reached ✕</div><div class="cross">❌</div>`;
+  if(C.kind==='bar')card+=`<div class="barwrap"><div class="bar2"><i></i></div></div><div class="errchip">⚠ Render Error · Limit Khatm</div>`;
+  if(C.kind==='quote')card+=`<div class="quote">"Pro wale bhaiya,<br>ab EDITOR bhi ban jao!"</div>`;
+  if(C.kind==='lock')card+=`<div class="lockic">🔒</div>`;
+  if(C.kind==='typing')card+=`<div class="typeline"><span class="tt"></span><span class="caret">▍</span></div>`;
+  if(C.kind==='wm')card+=`<div class="wmbox"><div class="wmt">watermark</div><div class="wmi">🎬 meri-reel.mp4</div></div>`;
+  if(C.rows)card+=`<div class="rows">${C.rows.map(r=>`<div class="rrow${r[2]?' g':''}"><span class="ic">${r[0]}</span>${r[1]}</div>`).join('')}</div>`;
+  if(C.foot)card+=`<div class="foot">${C.foot}</div>`;
+ }
+ d.innerHTML=`<div class="pill">${S.pill}</div>
+ <div class="head"><div class="l1">${S.l1.split(' ').map(w=>`<span class="w">${w}</span>`).join(' ')}</div>
+ <span class="l2"><span class="fill">${S.l2}</span><svg class="und" viewBox="0 0 100 8" preserveAspectRatio="none"><path d="M1 5 Q 25 1 50 4 T 99 3" stroke="#0E9F6E" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".65"/></svg></span></div>
+ <div class="dots"></div>
+ <div class="ambient"></div>
+ <svg class="sketch" viewBox="0 0 540 960" width="540" height="960">
+ <path class="wv" d="M-20 700 Q 25 683 70 700 T 160 700 T 250 700 T 340 700 T 430 700 T 520 700 T 610 700" stroke="#0E9F6E" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-dasharray="16 12" opacity=".20"/>
+ <path class="wv" d="M-20 736 Q 25 722 70 736 T 160 736 T 250 736 T 340 736 T 430 736 T 520 736 T 610 736" stroke="#0B3D2E" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="13 11" opacity=".12"/>
+ </svg>
+ <div class="card"><div class="inner">${card}</div></div>`;
+ stage.appendChild(d);
+});
+const cz=document.createElement('div');cz.id='capzone';
+cz.innerHTML=`<div id="charwrap"><img id="chBot"><img id="chTop"></div><div id="bubble"></div><div id="sticker"></div>`;stage.appendChild(cz);
+const br=document.createElement('div');br.id='brand';br.textContent='✳ I.RAJ1801';stage.appendChild(br);
+const L=DATA.lines;
+const phrases=[];
+L.forEach((ln,li)=>{for(let i=0;i<ln.words.length;i+=3)phrases.push({li,words:ln.words.slice(i,i+3)})});
+function sceneAt(t){for(let i=SCENES.length-1;i>=0;i--)if(t>=SCENES[i].t0)return i;return 0}
+function seek(t){
+ const si=sceneAt(t), S=SCENES[si], ln=L[si];
+ const lp=clamp((t-ln.start)/ln.dur,0,1);
+ SCENES.forEach((Sx,i)=>{
+   const el=$('#sc'+i);let o=0;
+   if(i===si)o=eio(clamp((t-Sx.t0)/0.3,0,1));
+   else if(i===si-1&&t<Sx.t1+0.3)o=1-eio(clamp((t-Sx.t1+0.02)/0.3,0,1));
+   el.style.opacity=o;
+   const sc=1+(i===si?0.035*clamp((t-Sx.t0)/(Sx.t1-Sx.t0),0,1):0);
+   el.querySelector('.card').style.transform=`scale(${sc})`;
+   el.style.visibility=o<=0.001?'hidden':'visible';
+ });
+ const lt=t-S.t0, head=$('#sc'+si+' .head');
+ head.querySelectorAll('.l1 .w').forEach((w,i)=>{const k=eoc(clamp((lt-0.05-i*0.06)/0.3,0,1));w.style.opacity=k;w.style.transform=`translateY(${(1-k)*10}px)`});
+ const l2=$('#sc'+si+' .l2');const gk=clamp((lt-0.35)/0.45,0,1);
+ l2.style.opacity=0.25+0.75*eio(gk); l2.style.filter=gk<1?`grayscale(${1-gk})`:'none';
+ const inner=$('#sc'+si+' .inner'), C=S.card||{};
+ const hero=inner.querySelector('.hero,.bigtext,.lockic');
+ if(hero){const k=eob(clamp((lp-(C.heroAt||0.08))/0.3,0,1));hero.style.opacity=k;hero.style.transform=`scale(${0.55+0.45*k})`}
+ inner.querySelectorAll('.rrow').forEach((r,i)=>{const at=(C.rowAt&&C.rowAt[i])||(0.25+i*0.22);const k=eob(clamp((lp-at)/0.28,0,1));r.style.opacity=k;r.style.transform=`translateY(${(1-k)*12}px) scale(${0.8+0.2*k})`});
+ const foot=inner.querySelector('.foot');if(foot){const k=eoc(clamp((lp-(C.footAt||0.8))/0.3,0,1));foot.style.opacity=k}
+ if(C.kind==='bar'){const f=inner.querySelector('.bar2 i');if(f)f.style.width=(eio(clamp(lp*1.15,0,1))*78)+'%';
+   const ec=inner.querySelector('.errchip');if(ec){const k=eob(clamp((lp-0.7)/0.3,0,1));ec.style.opacity=k;ec.style.transform=`scale(${0.7+0.3*k})`}}
+ if(C.kind==='code'){const cr=inner.querySelector('.cross');if(cr){const k=eob(clamp((lp-0.55)/0.3,0,1));cr.style.opacity=k*0.92;cr.style.transform=`scale(${0.6+0.4*k}) rotate(-8deg)`}
+   const cl=inner.querySelector('.codelines');if(cl)cl.style.opacity=0.35+0.65*eoc(clamp(lp/0.3,0,1))}
+ if(C.kind==='typing'){const tt=inner.querySelector('.tt');if(tt){const full='मेरी agency की reel बना दो';const chars=Math.floor(clamp((lp-0.15)/0.6,0,1)*full.length);tt.textContent=full.slice(0,chars);
+   const car=inner.querySelector('.caret');if(car)car.style.opacity=(Math.sin(t*7)>0||lp>0.8)?1:0.15}}
+ if(C.kind==='versus'){const a=inner.querySelector('.vsA'),b=inner.querySelector('.vsB');
+   if(a){const k=eoc(clamp((lp-0.05)/0.3,0,1));a.style.opacity=k;a.style.transform=`translateX(${(1-k)*-24}px)`}
+   if(b){const k=eoc(clamp((lp-0.45)/0.3,0,1));b.style.opacity=k;b.style.transform=`translateX(${(1-k)*24}px)`}}
+ // character poses (library) — crossfade 0.25s
+ const EXPR=DATA.expr; let k2=0; for(let i=0;i<EXPR.length;i++){ if(t>=EXPR[i][0]) k2=i }
+ const cT=$('#chTop'), cB=$('#chBot'), curE=EXPR[k2][1], since=t-EXPR[k2][0];
+ if(since<0.25 && k2>0){ const prv=EXPR[k2-1][1];
+   if(cB.dataset.e!==prv){cB.src='poses/'+prv+'.png';cB.dataset.e=prv}
+   if(cT.dataset.e!==curE){cT.src='poses/'+curE+'.png';cT.dataset.e=curE}
+   cB.style.opacity=1; cT.style.opacity=(since/0.25).toFixed(3);
+ } else {
+   if(cT.dataset.e!==curE){cT.src='poses/'+curE+'.png';cT.dataset.e=curE}
+   cT.style.opacity=1; cB.style.opacity=0;
+ }
+ // bg layers: dots drift, sketch waves, ambient glyphs, stickers
+ const scEl=$('#sc'+si);
+ const sk=scEl.querySelector('.sketch');
+ if(sk)sk.querySelectorAll('.wv').forEach(p=>p.setAttribute('stroke-dashoffset',(-t*55).toFixed(1)));
+ const dt2=scEl.querySelector('.dots'); if(dt2)dt2.style.backgroundPosition=((t*5)%26).toFixed(1)+'px '+((t*2)%26).toFixed(1)+'px';
+ const stk=$('#sticker'); let actS=null; for(const pr of DATA.stk){ if(t>=pr[0] && t<pr[0]+1.7) actS=pr }
+ if(actS){ const lt2=t-actS[0]; const pp=Math.min(1,lt2/0.28); const bo=1+2.70158*Math.pow(pp-1,3)+1.70158*Math.pow(pp-1,2); const fo=lt2>1.4?Math.max(0,(1.7-lt2)/0.3):1;
+   if(stk.dataset.e!==actS[1]){ stk.textContent=actS[1]; stk.dataset.e=actS[1] }
+   stk.style.opacity=fo.toFixed(2); stk.style.transform='translateY('+(Math.sin(lt2*3.2)*3.5).toFixed(1)+'px) scale('+bo.toFixed(3)+')';
+ } else stk.style.opacity=0;
+ const amb=scEl.querySelector('.ambient');
+ if(amb && !amb.dataset.built){ amb.dataset.built='1'; let h=''; for(let i=0;i<18;i++)h+='<span class="amb"></span>'; amb.innerHTML=h }
+ const GLYPH=[['♪','✦','●','♫'],['○','●','✦','●'],['↑','✦','●','↑'],['★','●','✦','♪']];
+ if(amb){ const set=GLYPH[si%4];
+   amb.querySelectorAll('.amb').forEach((sp,i)=>{ const off=(i*0.618)%1;
+     sp.textContent=set[i%4];
+     sp.style.left=(4+((i*67)%92))+'%';
+     sp.style.top=(88-((t*2.6+off*74)%74))+'%';
+     sp.style.fontSize=(22+((i*11)%20))+'px';
+     sp.style.opacity=(0.12+((i*7)%10)/100).toFixed(2);
+     sp.style.transform='translateX('+(Math.sin(t*0.5+i*1.7)*10).toFixed(1)+'px)';
+   }) }
+ // bubble phrases
+ let cur=null;for(const p of phrases){if(t>=p.words[0].s-0.02)cur=p}
+ const bub=$('#bubble');
+ if(cur){const key=cur.li+'-'+cur.words[0].s;
+   if(bub.dataset.k!==key){bub.dataset.k=key;bub.innerHTML=cur.words.map(w=>`<span class="cw${(SCENES[cur.li].kw||[]).includes(w.w)?' hot':''}" data-s="${w.s}">${w.w}</span>`).join(' ')}
+   bub.querySelectorAll('.cw').forEach(el=>{const s=parseFloat(el.dataset.s);
+     el.style.transform=`scale(${t>=s?1+0.1*Math.sin(clamp((t-s)/0.32,0,1)*Math.PI):1})`;el.style.opacity=t>=s-0.02?1:0.28});
+ } else bub.innerHTML='';
+}
+window.seek=seek;seek(0);
+</script></body></html>
