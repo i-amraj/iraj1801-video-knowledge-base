@@ -3,8 +3,8 @@
  * ----------------------------------------------------------------------------------
  * Kaam: Instagram par comment aate hi (Meta webhook se, kuch seconds me)
  *   1. Public reply (comment ke neeche) — har comment par, ghumte hue templates se
- *   2. Comment me "STICK" keyword ho to usi bande ko private DM me GitHub repo link
- *   3. Koi DM me "STICK" likhe to wahan bhi repo link auto-reply
+ *   2. Comment me "STICK"/"VIDEO" keyword ho to usi bande ko private DM me guide link
+ *   3. Koi DM me "STICK"/"VIDEO" likhe to wahan bhi wahi follow-gate flow auto-start
  *
  * Chalta hai: Cloudflare Worker (free) par. Data/secrets sirf Raj ke apne infra me.
  * IG credentials KV me rehte hain (keys: ig_token, ig_user_id, ig_app_secret) —
@@ -68,13 +68,30 @@ const CONFIG = {
         "Ye lo, jaise vaada tha! 🎉\n\nFREE Auto Captions (Edits by Instagram) ka poora guide:\n{link}\n\n" +
         "Koi dikkat aaye to isi DM me reply kar dena. — Raj",
     },
+    video: {
+      greeting:
+        "Hey there! 🙏 Comment ke liye dhanyavaad.\n" +
+        "FREE tool Fliki — ek line likho, script + awaaz + visuals ke saath poori video ready! Poore details chahiye to neeche wala button dabao 👇",
+      cardTitle: "Ye lo, jaise vaada tha! 🎉",
+      cardSubtitle:
+        "FREE tool hai Fliki (fliki.ai) — ek line se narrated video: script, awaaz, visuals teeno khud jodta hai, Hindi bhi bolta hai. Free plan ₹0, bina card ke; bas free videos par chhota sa watermark aata hai. Poora guide button me 👇",
+      buttonTitle: "Fliki Guide 🔗",
+      link: "https://github.com/i-amraj/free-ai-video-tool",
+      deliverText:
+        "Ye lo, jaise vaada tha! 🎉\n\nFree tool ka naam hai Fliki — fliki.ai\n" +
+        "Ek line likho, aur Fliki usse narrated video bana deta hai: script, awaaz, visuals — teeno khud jodta hai. Hindi bhi bolta hai.\n" +
+        "Free plan: ₹0, bina card ke. 3 credits/month, 300 voices, 80+ languages, 720p export. Ek sach: free videos par Fliki ka watermark aata hai, aur commercial rights nahi milte.\n\n" +
+        "Poora guide (steps + plans + poora sach):\n{link}\n\n" +
+        "Koi dikkat aaye to isi DM me reply kar dena. — Raj",
+    },
   },
 
   // Keyword rule: DM me ye shabd aaye to wahi follow-gate flow shuru hoga
   keyword: "STICK",
+  videoKeyword: "VIDEO",
   keywordPublicReplies: [
-    "Hello! Main Bunty hoon, Raj ka personal agent 🤖 DM me details bhej diye hain, check karo 📩",
-    "Hi! Bunty here, Raj ka personal agent 🤖 Details tumhare DM me hain 🔗",
+    "Hello! Main Nikki hoon, Raj ki personal agent 👼 DM me details bhej diye hain, check karo 📩",
+    "Hi! Nikki here, Raj ki personal agent 👼 Details tumhare DM me hain 🔗",
   ],
 
   // ---- Follow-gate flow (ManyChat style, apna system) ----
@@ -88,12 +105,12 @@ const CONFIG = {
     "Pehle follow kar lo, phir neeche \"I'm following ✅\" dabao — link turant bhej dunga 👇",
 
   // Baaki saare comments ke liye public replies (rotation me chalenge)
-  // Raj ka order: har reply me Bunty ka short intro (Raj ka personal agent)
+  // Raj ka order: har reply me Nikki ka short intro (Raj ki personal agent)
   generalPublicReplies: [
-    "Hello! Main Bunty hoon, Raj ka personal agent 🤖 Dhanyavaad comment ke liye! 🙏",
-    "Hi! Bunty here, Raj ka personal agent 🤖 Thank you so much! ❤️",
-    "Hello dost! Main Bunty hoon, Raj ka personal agent 🤖 Shukriya! 🙌",
-    "Hey! Bunty bol raha hai, Raj ka personal agent 🤖 Bahut badhiya! 🔥",
+    "Hello! Main Nikki hoon, Raj ki personal agent 👼 Dhanyavaad comment ke liye! 🙏",
+    "Hi! Nikki here, Raj ki personal agent 👼 Thank you so much! ❤️",
+    "Hello dost! Main Nikki hoon, Raj ki personal agent 👼 Shukriya! 🙌",
+    "Hey! Nikki bol rahi hai, Raj ki personal agent 👼 Bahut badhiya! 🔥",
   ],
 
   cooldownHours: 24, // ek hi bande ko keyword-DM dobara itne ghanto tak nahi
@@ -325,6 +342,12 @@ function hasKeyword(text) {
   return re.test(text);
 }
 
+function hasVideoKeyword(text) {
+  if (!text) return false;
+  const re = new RegExp(`(^|[^A-Za-z])${CONFIG.videoKeyword}([^A-Za-z]|$)`, "i");
+  return re.test(text);
+}
+
 // ============================================================================
 // Event handlers
 // ============================================================================
@@ -350,11 +373,13 @@ async function handleComment(env, value, dryRun) {
   }
 
   const keywordHit = hasKeyword(text);
+  const videoHit = hasVideoKeyword(text);
   // Ye comment kis reel/post par aaya — usi ka reward is bande ko milega
+  // (VIDEO keyword aaye to hamesha video reward, media mapping se upar)
   const mediaId = String(value?.media?.id || "");
-  const reward = await rewardForMedia(env, mediaId);
+  const reward = videoHit ? CONFIG.rewards.video : await rewardForMedia(env, mediaId);
   console.log(
-    `comment comment=${commentId} media=${mediaId} author=@${username} keyword=${keywordHit} actions=reply+gate text="${text.slice(0, 80)}"${dryRun ? " [DRY_RUN]" : ""}`
+    `comment comment=${commentId} media=${mediaId} author=@${username} keyword=${keywordHit} video=${videoHit} actions=reply+gate text="${text.slice(0, 80)}"${dryRun ? " [DRY_RUN]" : ""}`
   );
   if (dryRun) return;
 
@@ -367,7 +392,7 @@ async function handleComment(env, value, dryRun) {
   }
 
   // 1) Public reply — HAR comment par
-  const replyText = keywordHit
+  const replyText = keywordHit || videoHit
     ? pick(CONFIG.keywordPublicReplies, commentId)
     : pick(CONFIG.generalPublicReplies, commentId);
   await publicReply(env, commentId, replyText);
@@ -433,14 +458,16 @@ async function handleMessage(env, event, dryRun) {
     console.log(`msg event text user=${senderId} text="${rawText.slice(0, 60)}"`);
   }
 
-  // DM me STICK likhe to wahi gate flow (greeting + button) shuru karo
+  // DM me STICK/VIDEO likhe to wahi gate flow (greeting + button) shuru karo
   const text = event?.message?.text || "";
-  if (hasKeyword(text)) {
-    console.log(`dm keyword user=${senderId}${dryRun ? " [DRY_RUN]" : ""}`);
+  if (hasKeyword(text) || hasVideoKeyword(text)) {
+    const videoDm = hasVideoKeyword(text) && !hasKeyword(text);
+    console.log(`dm keyword user=${senderId} video=${videoDm}${dryRun ? " [DRY_RUN]" : ""}`);
     if (dryRun) return;
     const coolKey = `cool:gate:${senderId}`;
     if (await env.STATE.get(coolKey)) return;
-    await dmSend(env, senderId, gateGreetingMessage(await rewardForUser(env, senderId)));
+    const reward = videoDm ? CONFIG.rewards.video : await rewardForUser(env, senderId);
+    await dmSend(env, senderId, gateGreetingMessage(reward));
     await env.STATE.put(coolKey, "1", {
       expirationTtl: CONFIG.cooldownHours * 3600,
     });
@@ -504,7 +531,7 @@ export default {
         ok: true,
         dryRun,
         instagram: Boolean(cfg.userId && cfg.token && cfg.secret),
-        rule: `keyword=${CONFIG.keyword}`,
+        rule: `keywords=${CONFIG.keyword},${CONFIG.videoKeyword}`,
         rewards: Object.keys(CONFIG.rewards),
         defaultReward: CONFIG.defaultReward,
       });
