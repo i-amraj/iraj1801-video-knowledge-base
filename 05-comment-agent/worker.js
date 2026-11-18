@@ -28,6 +28,11 @@ const CONFIG = {
   // rehti hai — /admin/mapmedia se bina redeploy ke badal sakte hain.
   // Koi mapping na mile to defaultReward wala jata hai.
   defaultReward: "stickman",
+  // Code me bandhi media -> reward mapping (KV mapping se pehle check hoti hai).
+  // Jab API token ke paas KV permission na ho to nayi reel yahin jodo.
+  staticMediaRewards: {
+    "18116877397875474": "video", // Claude vs Fliki reel (18 Nov 2026)
+  },
   rewards: {
     stickman: {
       greeting:
@@ -200,6 +205,9 @@ async function dmSend(env, userId, messageObj) {
 // ---- Rewards: media/user ke hisaab se sahi inaam chunna ----
 async function rewardKeyForMedia(env, mediaId) {
   if (mediaId) {
+    if (CONFIG.staticMediaRewards && CONFIG.staticMediaRewards[mediaId]) {
+      return CONFIG.staticMediaRewards[mediaId];
+    }
     try {
       const map = JSON.parse((await env.STATE.get("media_rewards")) || "{}");
       if (map[mediaId] && CONFIG.rewards[map[mediaId]]) return map[mediaId];
